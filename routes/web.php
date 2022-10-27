@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,7 @@ Route::middleware('auth')->group(function () {
         // Route::get('/about', 'about');
         // Route::get('/contac', 'contac');
     });
+    Route::post('/logout', [LoginController::class, 'logout']);
 
     Route::middleware('admin')->group(function () {
         // Route User
