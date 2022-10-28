@@ -16,6 +16,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto">
+                @Auth
                 <li class="nav-item dropdown">
                     <a
                         class="nav-link dropdown-toggle text-16 fw-semibold"
@@ -25,19 +26,35 @@
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                     >
-                        Logout <i class="bi bi-box-arrow-in-right"></i>
+                        {{ Auth::user()->name }}
+                        <i class="bi bi-box-arrow-in-right"></i>
                     </a>
                     <ul
                         class="dropdown-menu"
                         aria-labelledby="navbarDropdownMenuLink"
                     >
                         <li>
-                            <a class="dropdown-item" href="#"
-                                ><i class="bi bi-box-arrow-in-right"></i
-                            ></a>
+                            <form action="/logout" method="post">
+                                @csrf
+                                <button
+                                    type="submit"
+                                    class="dropdown-item text-blue-700"
+                                >
+                                    <i class="bi bi-box-arrow-left"></i> Logout
+                                </button>
+                            </form>
                         </li>
                     </ul>
                 </li>
+                @else
+                <li class="nav-item">
+                    <a
+                        class="nav-link {{ Request::is('/login*') ? 'active' : '' }} text-uppercase text-blue-200 font-semibold fs-14"
+                        href="/login"
+                        ><i class="bi bi-arrow-bar-left"></i> Login</a
+                    >
+                </li>
+                @endAuth
             </ul>
         </div>
     </div>

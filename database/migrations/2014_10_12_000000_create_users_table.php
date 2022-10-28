@@ -20,7 +20,7 @@ return new class extends Migration {
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('isAdmin')->default(false);
-            $table->rememberToken();
+            $table->string('pic')->nullable();
             $table->timestamps();
         });
     }
