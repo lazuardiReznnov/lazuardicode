@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;700&display=swap");
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css");
+
+:root {
+  /* font */
+  --poppin: "Poppins", sans-serif;
+  --lato: "Lato", sans-serif;
+  --roboto: "Roboto", sans-serif;
+
+  /* color */
+
+  /* --slate */
+  --slate-50: #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+
+  /*  --gray */
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+
+  /* --red */
+  --red-50: #fef2f2;
+  --red-100: #fee2e2;
+  --red-200: #fecaca;
+  --red-300: #fca5a5;
+  --red-400: #f87171;
+  --red-500: #ef4444;
+  --red-600: #dc2626;
+  --red-700: #b91c1c;
+  --red-800: #991b1b;
+  --red-900: #7f1d1d;
+
+  /* --orange */
+  --orange-50: #fff7ed;
+  --orange-100: #ffedd5;
+  --orange-200: #fed7aa;
+  --orange-300: #fdba74;
+  --orange-400: #fb923c;
+  --orange-500: #f97316;
+  --orange-600: #ea580c;
+  --orange-700: #c2410c;
+  --orange-800: #9a3412;
+  --orange-900: #7c2d12;
+
+  /* --Yellow */
+  --yellow-50: #fefce8;
+  --yellow-100: #fef9c3;
+  --yellow-200: #fef08a;
+  --yellow-300: #fde047;
+  --yellow-400: #facc15;
+  --yellow-500: #eab308;
+  --yellow-600: #ca8a04;
+  --yellow-700: #a16207;
+  --yellow-800: #854d0e;
+  --yellow-900: #713f12;
+
+  /* --purple */
+  --purple-50: #faf5ff;
+  --purple-100: #f3e8ff;
+  --purple-200: #e9d5ff;
+  --purple-300: #d8b4fe;
+  --purple-400: #c084fc;
+  --purple-500: #a855f7;
+  --purple-600: #9333ea;
+  --purple-700: #7e22ce;
+  --purple-800: #6b21a8;
+  --purple-900: #581c87;
+
+  /* --Fuchcia */
+  --fuchcia-50: #fdf4ff;
+  --fuchcia-100: #fae8ff;
+  --fuchcia-200: #f5d0fe;
+  --fuchcia-300: #f0abfc;
+  --fuchcia-400: #e879f9;
+  --fuchcia-500: #d946ef;
+  --fuchcia-600: #c026d3;
+  --fuchcia-700: #a21caf;
+  --fuchcia-800: #86198f;
+  --fuchcia-900: #701a75;
+}
+body {
+  background-color: var(--slate-100);
+}
+/* bg */
+.bg-slate-50 {
+  background-color: var(--slate-50);
+}
+.bg-slate-100 {
+  background-color: var(--slate-100);
+}
+.bg-slate-200 {
+  background-color: var(--slate-200);
+}
+.bg-slate-300 {
+  background-color: var(--slate-300);
+}
+.bg-slate-400 {
+  background-color: var(--slate-400);
+}
+.bg-slate-500 {
+  background-color: var(--slate-500);
+}
+.bg-slate-600 {
+  background-color: var(--slate-600);
+}
+.bg-slate-700 {
+  background-color: var(--slate-700);
+}
+.bg-slate-800 {
+  background-color: var(--slate-800);
+}
+.bg-slate-900 {
+  background-color: var(--slate-900);
+}
+/* tgxt */
+.text-slate-50 {
+  color: var(--slate-50);
+}
+.text-slate-100 {
+  color: var(--slate-100);
+}
+.text-slate-200 {
+  color: var(--slate-200);
+}
+.text-slate-300 {
+  color: var(--slate-300);
+}
+.text-slate-400 {
+  color: var(--slate-400);
+}
+.text-slate-500 {
+  color: var(--slate-500);
+}
+.text-slate-600 {
+  color: var(--slate-600);
+}
+.text-slate-700 {
+  color: var(--slate-700);
+}
+.text-slate-800 {
+  color: var(--slate-800);
+}
+.text-slate-900 {
+  color: var(--slate-900);
+}
+.poppins {
+  font-family: var(--poppin);
+}
+
+.text-shadow {
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
+}
+.text-12 {
+  font-size: 12px;
+}
+.text-14 {
+  font-size: 14px;
+}
+.text-16 {
+  font-size: 16px;
+}
+.text-18 {
+  font-size: 18px;
+}
+
+.card-hover:hover {
+  border: 1px #475569 solid;
+
+  border-radius: 10px;
+}
+
+.text-min-margin-top {
+  margin-top: -3px;
+}
