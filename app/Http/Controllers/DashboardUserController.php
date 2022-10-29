@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\support\Facades\Storage;
 
 class DashboardUserController extends Controller
 {
@@ -42,7 +44,27 @@ class DashboardUserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'username' => 'required|unique:users',
+            'name' => 'required',
+            'password' => 'required',
+            'email' => 'required|email:dns',
+            'isAdmin' => 'required',
+            'pic' => 'image|file|max:1024',
+        ]);
+
+        if ($request->file('pic')) {
+            $validatedData['pic'] = $request->file('pic')->store('user-image');
+        }
+
+        $validatedData['password'] = Hash::make($validatedData['password']);
+
+        User::create($validatedData);
+
+        return redirect('dashboard/user')->with(
+            'success',
+            'User Has Been Registrated'
+        );
     }
 
     /**
