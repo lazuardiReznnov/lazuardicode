@@ -28,6 +28,7 @@ class ProfilSeeder extends Seeder
             'instagram' => 'https://www.instagram.com/imlazuardy',
             'linkedin' =>
                 'https://www.linkedin.com/in/mohamad-lazuardi-noor-041aa28b/',
+            'github' => 'https://github.com/lazuardiReznnov',
         ]);
     }
 }
