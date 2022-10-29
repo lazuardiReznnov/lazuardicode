@@ -44,22 +44,7 @@
                 </div>
                 @enderror
             </div>
-            <div class="form-floating mb-3">
-                <input
-                    type="text"
-                    class="form-control @error('name') is-invalid @enderror"
-                    id="floatingInput"
-                    placeholder="name"
-                    name="name"
-                    required
-                />
-                <label for="floatingInput">Name</label>
-                @error('name')
-                <div id="name" class="invalid-feedback">
-                    {{ $message }}
-                </div>
-                @enderror
-            </div>
+
             <div class="form-floating mb-3">
                 <input
                     type="email"
@@ -112,17 +97,7 @@
                 </div>
                 @enderror
             </div>
-            <div class="mb-3 col-5">
-                <label for="pic" class="form-label text-blue-600">Photo</label>
-                <img width="200" class="img-preview img-fluid mb-2" alt="" />
-                <input
-                    class="form-control form-control-sm"
-                    id="pic"
-                    type="file"
-                    name="pic"
-                    onchange="previewImage()"
-                />
-            </div>
+
             <div class="mb-3 ms-3 mt-5">
                 <button type="submit" class="btn btn-primary">Save</button>
             </div>

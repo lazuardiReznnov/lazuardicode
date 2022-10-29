@@ -48,16 +48,12 @@ class DashboardUserController extends Controller
     {
         $validatedData = $request->validate([
             'username' => 'required|unique:users',
-            'name' => 'required',
+
             'password' => 'required',
             'email' => 'required|email:dns',
             'isAdmin' => 'required',
             'pic' => 'image|file|max:1024',
         ]);
-
-        if ($request->file('pic')) {
-            $validatedData['pic'] = $request->file('pic')->store('user-image');
-        }
 
         $validatedData['password'] = Hash::make($validatedData['password']);
 

@@ -34,8 +34,8 @@
                     <a class="nav-link" href="/dashboard/user"
                         >User Management</a
                     >
-                    <a class="nav-link" href="layout-sidenav-light.html"
-                        >Menu Management</a
+                    <a class="nav-link" href="/dashboard/user/profil"
+                        >Profil Management</a
                     >
                 </nav>
             </div>
@@ -43,6 +43,6 @@
     </div>
     <div class="sb-sidenav-footer">
         <div class="small">Logged in as:</div>
-        {{ Auth::User()->name }}
+        {{ Auth::User()->username }}
     </div>
 </nav>

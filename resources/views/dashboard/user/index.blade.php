@@ -82,7 +82,6 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Pic</th>
                     <th>Username</th>
                     <th>Email</th>
                     <th>Role</th>
@@ -97,17 +96,7 @@
                     <th scope="row">
                         {{ ($users->currentpage()-1) * $users->perpage() + $loop->index + 1 }}
                     </th>
-                    <td>
-                        @if($user->pic != 0)
-                        <img
-                            width="75"
-                            src="{{ asset('storage/'. $user->pic) }}"
-                            alt=""
-                        />
-                        @else
-                        {{ "-" }}
-                        @endif
-                    </td>
+
                     <td>{{ $user->username }}</td>
                     <td>{{ $user->email }}</td>
                     <td>
