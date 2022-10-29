@@ -56,7 +56,7 @@
                     data-bs-placement="top"
                     title="Add New User"
                 >
-                    Add
+                    <i class="fas fa-plus-circle"></i> Add
                 </a>
             </div>
             <div class="col-sm-4 ms-2">

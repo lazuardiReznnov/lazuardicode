@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\support\Facades\Storage;
 
+use function PHPSTORM_META\map;
+
 class DashboardUserController extends Controller
 {
     /**
@@ -86,7 +88,10 @@ class DashboardUserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('dashboard.user.edit', [
+            'title' => 'Edit User',
+            'data' => $user,
+        ]);
     }
 
     /**
@@ -98,7 +103,35 @@ class DashboardUserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $rules = [
+            'name' => 'required',
+            'email' => 'required|email:dns',
+            'isAdmin' => 'required',
+            'pic' => 'image|file|max:1024',
+        ];
+        if ($request->password != 0) {
+            $rules['password'] = 'required';
+        }
+
+        $validatedData = $request->validate($rules);
+
+        if ($request->file('pic')) {
+            if ($request->old_pic) {
+                storage::delete($request->old_pic);
+            }
+            $validatedData['pic'] = $request->file('pic')->store('user-image');
+        }
+
+        if ($request->password) {
+            $validatedData['password'] = Hash::make($validatedData['password']);
+        }
+
+        user::where('id', $user->id)->update($validatedData);
+
+        return redirect('dashboard/user')->with(
+            'success',
+            'User Has Been Updated'
+        );
     }
 
     /**
@@ -109,6 +142,13 @@ class DashboardUserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        User::destroy($user->id);
+        if ($user->pic) {
+            storage::delete($user->pic);
+        }
+        return redirect('dashboard/user')->with(
+            'success',
+            'User Has Been Delete'
+        );
     }
 }
