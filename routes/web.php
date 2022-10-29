@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardProfilUserController;
 use App\Http\Controllers\DashboardUserController;
 
 /*
@@ -31,6 +32,12 @@ Route::middleware('auth')->group(function () {
         // Route User
         Route::resource('/dashboard/user', DashboardUserController::class);
         // End Route User
+        // route Profil
+        route::resource(
+            '/dashboard/users/profile',
+            DashboardProfilUserController::class
+        )->only('index', 'update');
+        // end Route Profil
     });
 });
 

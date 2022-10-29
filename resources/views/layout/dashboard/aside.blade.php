@@ -34,7 +34,7 @@
                     <a class="nav-link" href="/dashboard/user"
                         >User Management</a
                     >
-                    <a class="nav-link" href="/dashboard/user/profil"
+                    <a class="nav-link" href="/dashboard/users/profile"
                         >Profil Management</a
                     >
                 </nav>

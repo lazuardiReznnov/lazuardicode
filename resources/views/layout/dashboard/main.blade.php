@@ -23,6 +23,8 @@
             src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
             crossorigin="anonymous"
         ></script>
+        <link rel="stylesheet" href="/css/trix.css" />
+        <script src="/js/trix.js"></script>
     </head>
     <body class="sb-nav-fixed">
         @include('layout.dashboard.nav-bar')
@@ -36,13 +38,14 @@
                 @include('layout.dashboard.footer')
             </div>
         </div>
+
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
             crossorigin="anonymous"
         ></script>
         <script src="/js/scripts.js"></script>
         <script src="/js/lazuardicode.js"></script>
-        <script src="/js/trix.js"></script>
+
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
             crossorigin="anonymous"

@@ -40,4 +40,9 @@ class User extends Authenticatable
     {
         return 'username';
     }
+
+    public function profilUser()
+    {
+        $this->hasMany(profilUser::class);
+    }
 }
