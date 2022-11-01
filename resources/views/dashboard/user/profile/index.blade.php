@@ -150,7 +150,7 @@
                     >
                     <p>
                         <a
-                            href="{{ $data->fb }}"
+                            href="{{ $data->facebook }}"
                             class="badge text-decoration-none text-primary fs-3"
                             ><i class="fab fa-facebook"></i
                         ></a>
