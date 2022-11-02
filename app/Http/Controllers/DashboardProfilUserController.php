@@ -6,6 +6,7 @@ use App\Models\ProfilUser;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\Return_;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\support\Facades\Storage;
 
 class DashboardProfilUserController extends Controller
 {
@@ -74,7 +75,30 @@ class DashboardProfilUserController extends Controller
      */
     public function update(Request $request, ProfilUser $profilUser)
     {
-        //
+        $rules = [
+            'fullname' => 'required',
+            'smalltitle' => 'required',
+            'descriptions' => 'required',
+            'job' => 'required',
+            'facebook' => 'required',
+            'instagram' => 'required',
+            'linkedin' => 'required',
+            'github' => 'required',
+            'pic' => 'image|file|max:1024',
+        ];
+        $validatedData = $request->validate($rules);
+        if ($request->file('pic')) {
+            if ($request->old_pic) {
+                storage::delete($request->old_pic);
+            }
+            $validatedData['pic'] = $request->file('pic')->store('profile-pic');
+        }
+
+        ProfilUser::where('id', $profilUser->id)->update($validatedData);
+        return redirect('dashboard/users/profile')->with(
+            'success',
+            'Data Has Been Updated'
+        );
     }
 
     /**

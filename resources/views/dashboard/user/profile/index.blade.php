@@ -27,7 +27,7 @@
     </div>
     <div class="card-body">
         <form
-            action="/dashboard/users/{{ $data->slug }}"
+            action="/dashboard/users/profile/{{ $data->slug }}"
             method="post"
             enctype="multipart/form-data"
         >
@@ -112,6 +112,27 @@
                     />
                     @error('smallTitle')
                     <div id="smallTitle" class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+            </div>
+            <hr />
+            <div class="row mb-3">
+                <div class="col-md">
+                    <label for="job" class="form-label fw-bold">Job</label>
+                    <p>{!! $data->job !!}</p>
+                </div>
+                <div class="col-md">
+                    <input
+                        type="text"
+                        class="form-control form-control-sm @error('job') is-invalid @enderror"
+                        id="job"
+                        name="job"
+                        value="{{ old('job',$data->job) }}"
+                    />
+                    @error('job')
+                    <div id="job" class="invalid-feedback">
                         {{ $message }}
                     </div>
                     @enderror

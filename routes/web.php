@@ -36,7 +36,7 @@ Route::middleware('auth')->group(function () {
         route::resource(
             '/dashboard/users/profile',
             DashboardProfilUserController::class
-        )->only('index', 'update');
+        );
         // end Route Profil
     });
 });
