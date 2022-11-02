@@ -27,7 +27,7 @@
     </div>
     <div class="card-body">
         <form
-            action="/dashboard/users/profile/{{ $data->slug }}"
+            action="/dashboard/users/profilUser/{{ $data->slug }}"
             method="post"
             enctype="multipart/form-data"
         >
@@ -60,7 +60,7 @@
                         class="form-control form-control-sm @error('pic') is_invalid @enderror"
                         id="pic"
                         type="file"
-                        name="img"
+                        name="pic"
                         onchange="previewImage()"
                     />
                     @error('pic')

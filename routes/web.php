@@ -34,7 +34,7 @@ Route::middleware('auth')->group(function () {
         // End Route User
         // route Profil
         route::resource(
-            '/dashboard/users/profile',
+            '/dashboard/users/profilUser',
             DashboardProfilUserController::class
         );
         // end Route Profil
