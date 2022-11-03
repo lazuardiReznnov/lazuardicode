@@ -30,13 +30,16 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware('admin')->group(function () {
         // Route User
-        Route::resource('/dashboard/user', DashboardUserController::class);
+        Route::resource(
+            '/dashboard/user',
+            DashboardUserController::class
+        )->except('show');
         // End Route User
         // route Profil
         route::resource(
             '/dashboard/users/profilUser',
             DashboardProfilUserController::class
-        );
+        )->only('index', 'update');
         // end Route Profil
     });
 });

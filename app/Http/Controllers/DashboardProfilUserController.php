@@ -95,7 +95,7 @@ class DashboardProfilUserController extends Controller
         }
 
         ProfilUser::where('id', $profilUser->id)->update($validatedData);
-        return redirect('dashboard/users/profile')->with(
+        return redirect('dashboard/users/profilUser')->with(
             'success',
             'Data Has Been Updated'
         );

@@ -3,10 +3,10 @@
         <div class="row d-flex justify-content-between">
             <div class="col-md border border-1 d-flex mt-3">
                 <div class="me-3">
-                    @auth @if(auth::user()->pic!=0)
+                    @auth @if($data->pic != 0)
                     <img
                         class="rounded-circle border border-light shadow"
-                        src="{{ Auth::user()->pic }}"
+                        src="{{ asset('storage/'. $data->pic) }}"
                         width="150px"
                         alt=""
                     />@else
@@ -28,7 +28,7 @@
                 <div class="border mt-4">
                     <h3 class="text-uppercase fw-bold mt-2 text-shadow">
                         @auth
-                        {{ Auth::user()->name }}
+                        {{ $data->fullname }}
                         @endauth @guest Guest @endguest
                     </h3>
                     @auth
