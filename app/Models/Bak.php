@@ -6,9 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 
-class Brand extends Model
+class Bak extends Model
 {
+    use HasFactory;
+
     use HasFactory, Sluggable;
+
     protected $guarded = ['id'];
 
     public function sluggable(): array

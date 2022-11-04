@@ -135,7 +135,7 @@
                 <div class="sb-nav-link-icon">
                     <i class="fas fa-book-open"></i>
                 </div>
-                Unit
+                Unit Management
                 <div class="sb-sidenav-collapse-arrow">
                     <i class="fas fa-angle-down"></i>
                 </div>
@@ -158,7 +158,7 @@
                         aria-expanded="false"
                         aria-controls="pagesCollapseBrand"
                     >
-                        Authentication
+                        Unit
                         <div class="sb-sidenav-collapse-arrow">
                             <i class="fas fa-angle-down"></i>
                         </div>
@@ -170,31 +170,31 @@
                         data-bs-parent="#sidenavAccordionPages"
                     >
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="login.html">Login</a>
-                            <a class="nav-link" href="register.html"
-                                >Register</a
-                            >
+                            <a class="nav-link" href="login.html">Categories</a>
+                            <a class="nav-link" href="register.html">Brand</a>
                             <a class="nav-link" href="password.html"
-                                >Forgot Password</a
+                                >Karoseri</a
                             >
+                            <a class="nav-link" href="password.html">Types</a>
+                            <a class="nav-link" href="password.html">Unit</a>
                         </nav>
                     </div>
                     <a
                         class="nav-link collapsed"
                         href="#"
                         data-bs-toggle="collapse"
-                        data-bs-target="#pagesCollapsekaroseri"
+                        data-bs-target="#pagesCollapseSurat"
                         aria-expanded="false"
-                        aria-controls="pagesCollapsekaroseri"
+                        aria-controls="pagesCollapseSurat"
                     >
-                        karoseri
+                        Surat-Surat
                         <div class="sb-sidenav-collapse-arrow">
                             <i class="fas fa-angle-down"></i>
                         </div>
                     </a>
                     <div
                         class="collapse"
-                        id="pagesCollapsekaroseri"
+                        id="pagesCollapseSurat"
                         aria-labelledby="headingOne"
                         data-bs-parent="#sidenavAccordionPages"
                     >
