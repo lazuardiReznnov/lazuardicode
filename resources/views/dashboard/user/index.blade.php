@@ -58,6 +58,15 @@
                 >
                     <i class="fas fa-plus-circle"></i> Add
                 </a>
+                <a
+                    href="/dashboard/users/file-import-create"
+                    class="btn btn-primary"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="Import User"
+                >
+                    <i class="fas fa-plus-circle"></i> Add
+                </a>
             </div>
             <div class="col-sm-4 ms-2">
                 <div class="input-group mb-3">

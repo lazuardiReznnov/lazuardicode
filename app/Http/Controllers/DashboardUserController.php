@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\UsersImport;
 
 use function PHPSTORM_META\map;
 
@@ -146,5 +148,27 @@ class DashboardUserController extends Controller
             'success',
             'User Has Been Delete'
         );
+    }
+
+    public function fileImportCreate()
+    {
+        return view('dashboard.user.file-import-create', [
+            'title' => 'Import User',
+        ]);
+    }
+
+    public function fileImport(Request $request)
+    {
+        $validatedData = $request->validate([
+            'excl' => 'required:mimes:xlsx,xls,csv|max:2048',
+        ]);
+
+        if ($request->file('excl')) {
+            Excel::import(new UsersImport(), $validatedData['excl']);
+            return redirect('/dashboard/user')->with(
+                'success',
+                'New Units Has Been Aded.!'
+            );
+        }
     }
 }

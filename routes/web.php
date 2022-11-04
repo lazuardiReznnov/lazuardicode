@@ -34,6 +34,15 @@ Route::middleware('auth')->group(function () {
             '/dashboard/user',
             DashboardUserController::class
         )->except('show');
+        Route::post('/dashboard/users/file-import', [
+            DashboardUserController::class,
+            'fileImport',
+        ]);
+
+        Route::get('/dashboard/users/file-import-create', [
+            DashboardUserController::class,
+            'fileImportCreate',
+        ]);
         // End Route User
         // route Profil
         route::resource(

@@ -10,9 +10,15 @@ class HomeController extends Controller
 {
     public function index()
     {
+        if (auth()->guest()) {
+            $data = '';
+        } else {
+            $data = profilUser::where('user_id', auth::user()->id)->first();
+        }
+
         return view('landingpage.index', [
             'title' => 'Landing Page',
-            'data' => profilUser::where('user_id', Auth::user()->id)->first(),
+            'data' => $data,
         ]);
     }
 }
