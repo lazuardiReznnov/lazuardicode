@@ -41,95 +41,14 @@
                 </nav>
             </div>
             @endcan
+
             <a
                 class="nav-link collapsed"
                 href="#"
                 data-bs-toggle="collapse"
-                data-bs-target="#collapsePages"
+                data-bs-target="#collapseblog"
                 aria-expanded="false"
-                aria-controls="collapsePages"
-            >
-                <div class="sb-nav-link-icon">
-                    <i class="fas fa-book-open"></i>
-                </div>
-                Pages
-                <div class="sb-sidenav-collapse-arrow">
-                    <i class="fas fa-angle-down"></i>
-                </div>
-            </a>
-            <div
-                class="collapse"
-                id="collapsePages"
-                aria-labelledby="headingTwo"
-                data-bs-parent="#sidenavAccordion"
-            >
-                <nav
-                    class="sb-sidenav-menu-nested nav accordion"
-                    id="sidenavAccordionPages"
-                >
-                    <a
-                        class="nav-link collapsed"
-                        href="#"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#pagesCollapseAuth"
-                        aria-expanded="false"
-                        aria-controls="pagesCollapseAuth"
-                    >
-                        Authentication
-                        <div class="sb-sidenav-collapse-arrow">
-                            <i class="fas fa-angle-down"></i>
-                        </div>
-                    </a>
-                    <div
-                        class="collapse"
-                        id="pagesCollapseAuth"
-                        aria-labelledby="headingOne"
-                        data-bs-parent="#sidenavAccordionPages"
-                    >
-                        <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="login.html">Login</a>
-                            <a class="nav-link" href="register.html"
-                                >Register</a
-                            >
-                            <a class="nav-link" href="password.html"
-                                >Forgot Password</a
-                            >
-                        </nav>
-                    </div>
-                    <a
-                        class="nav-link collapsed"
-                        href="#"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#pagesCollapseError"
-                        aria-expanded="false"
-                        aria-controls="pagesCollapseError"
-                    >
-                        Error
-                        <div class="sb-sidenav-collapse-arrow">
-                            <i class="fas fa-angle-down"></i>
-                        </div>
-                    </a>
-                    <div
-                        class="collapse"
-                        id="pagesCollapseError"
-                        aria-labelledby="headingOne"
-                        data-bs-parent="#sidenavAccordionPages"
-                    >
-                        <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="401.html">401 Page</a>
-                            <a class="nav-link" href="404.html">404 Page</a>
-                            <a class="nav-link" href="500.html">500 Page</a>
-                        </nav>
-                    </div>
-                </nav>
-            </div>
-            <a
-                class="nav-link collapsed"
-                href="#"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapsePages"
-                aria-expanded="false"
-                aria-controls="collapsePages"
+                aria-controls="collapseblog"
             >
                 <div class="sb-nav-link-icon">
                     <i class="fas fa-book-open"></i>
@@ -141,7 +60,7 @@
             </a>
             <div
                 class="collapse"
-                id="collapsePages"
+                id="collapseblog"
                 aria-labelledby="headingTwo"
                 data-bs-parent="#sidenavAccordion"
             >
@@ -194,6 +113,88 @@
                     <div
                         class="collapse"
                         id="pagesCollapseError"
+                        aria-labelledby="headingOne"
+                        data-bs-parent="#sidenavAccordionPages"
+                    >
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="401.html">401 Page</a>
+                            <a class="nav-link" href="404.html">404 Page</a>
+                            <a class="nav-link" href="500.html">500 Page</a>
+                        </nav>
+                    </div>
+                </nav>
+            </div>
+            <a
+                class="nav-link collapsed"
+                href="#"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseUnit"
+                aria-expanded="false"
+                aria-controls="collapseUnit"
+            >
+                <div class="sb-nav-link-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                Unit
+                <div class="sb-sidenav-collapse-arrow">
+                    <i class="fas fa-angle-down"></i>
+                </div>
+            </a>
+            <div
+                class="collapse"
+                id="collapseUnit"
+                aria-labelledby="headingTwo"
+                data-bs-parent="#sidenavAccordion"
+            >
+                <nav
+                    class="sb-sidenav-menu-nested nav accordion"
+                    id="sidenavAccordionPages"
+                >
+                    <a
+                        class="nav-link collapsed"
+                        href="#"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#pagesCollapseBrand"
+                        aria-expanded="false"
+                        aria-controls="pagesCollapseBrand"
+                    >
+                        Authentication
+                        <div class="sb-sidenav-collapse-arrow">
+                            <i class="fas fa-angle-down"></i>
+                        </div>
+                    </a>
+                    <div
+                        class="collapse"
+                        id="pagesCollapseBrand"
+                        aria-labelledby="headingOne"
+                        data-bs-parent="#sidenavAccordionPages"
+                    >
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="login.html">Login</a>
+                            <a class="nav-link" href="register.html"
+                                >Register</a
+                            >
+                            <a class="nav-link" href="password.html"
+                                >Forgot Password</a
+                            >
+                        </nav>
+                    </div>
+                    <a
+                        class="nav-link collapsed"
+                        href="#"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#pagesCollapsekaroseri"
+                        aria-expanded="false"
+                        aria-controls="pagesCollapsekaroseri"
+                    >
+                        karoseri
+                        <div class="sb-sidenav-collapse-arrow">
+                            <i class="fas fa-angle-down"></i>
+                        </div>
+                    </a>
+                    <div
+                        class="collapse"
+                        id="pagesCollapsekaroseri"
                         aria-labelledby="headingOne"
                         data-bs-parent="#sidenavAccordionPages"
                     >
