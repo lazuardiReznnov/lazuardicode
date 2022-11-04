@@ -3,7 +3,7 @@
         <div class="row d-flex justify-content-between">
             <div class="col-md border border-1 d-flex mt-3">
                 <div class="me-3">
-                    @auth @if($data->pic != 0)
+                    @can('admin') @auth @if($data->pic != 0)
                     <img
                         class="rounded-circle border border-light shadow"
                         src="{{ asset('storage/'. $data->pic) }}"
@@ -16,7 +16,7 @@
                         width="150px"
                         alt=""
                     />
-                    @endif @endAuth @guest
+                    @endif @endAuth @endcan @guest
                     <img
                         class="rounded-circle border border-light shadow"
                         src="/img/1.jpg"
