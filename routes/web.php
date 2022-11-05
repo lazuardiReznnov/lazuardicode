@@ -51,7 +51,17 @@ Route::middleware('auth')->group(function () {
         )->only('index', 'update');
         // end Route Profil
 
+        // unit
         route::resource('/dashboard/units', DashboardUnitController::class);
+        Route::post('/dashboard/unit/file-import', [
+            DashboardUnitController::class,
+            'fileImport',
+        ]);
+        Route::get('/dashboard/unit/file-import-create', [
+            DashboardUnitController::class,
+            'fileImportCreate',
+        ]);
+        // endUnit
     });
 });
 

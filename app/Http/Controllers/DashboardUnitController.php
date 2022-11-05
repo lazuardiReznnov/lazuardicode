@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Unit;
 use Illuminate\Http\Request;
+use Illuminate\support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\UnitImport;
 
 class DashboardUnitController extends Controller
 {
@@ -50,7 +53,10 @@ class DashboardUnitController extends Controller
      */
     public function show(Unit $unit)
     {
-        //
+        return view('dashboard.units.unit.show', [
+            'title' => 'Detail Unit',
+            'data' => $unit,
+        ]);
     }
 
     /**
@@ -85,5 +91,27 @@ class DashboardUnitController extends Controller
     public function destroy(Unit $unit)
     {
         //
+    }
+
+    public function fileImportCreate()
+    {
+        return view('dashboard.units.unit.file-import-create', [
+            'title' => 'Import User',
+        ]);
+    }
+
+    public function fileImport(Request $request)
+    {
+        $validatedData = $request->validate([
+            'excl' => 'required:mimes:xlsx,xls,csv|max:2048',
+        ]);
+
+        if ($request->file('excl')) {
+            Excel::import(new UnitImport(), $validatedData['excl']);
+            return redirect('/dashboard/units')->with(
+                'success',
+                'New Units Has Been Aded.!'
+            );
+        }
     }
 }

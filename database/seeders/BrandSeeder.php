@@ -49,5 +49,11 @@ class BrandSeeder extends Seeder
             'description' =>
                 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit porro perferendis consectetur voluptatibus fuga reiciendis alias laborum, iste illo expedita.',
         ]);
+        Brand::create([
+            'name' => 'Toyota',
+            'slug' => 'toyota',
+            'description' =>
+                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit porro perferendis consectetur voluptatibus fuga reiciendis alias laborum, iste illo expedita.',
+        ]);
     }
 }

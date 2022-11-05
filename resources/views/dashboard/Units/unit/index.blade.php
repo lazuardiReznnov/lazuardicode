@@ -60,7 +60,7 @@
                     <i class="fas fa-plus-circle"></i> Add
                 </a>
                 <a
-                    href="/dashboard/units/file-import-create"
+                    href="/dashboard/unit/file-import-create"
                     class="btn btn-primary"
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
@@ -92,11 +92,12 @@
             <thead>
                 <tr>
                     <th>#</th>
+                    <th>Pic</th>
                     <th>No Registration</th>
                     <th>Brand/Type</th>
                     <th>Category</th>
                     <th>Group</th>
-                    <th>Flag</th>
+
                     <th>Action</th>
                 </tr>
             </thead>
@@ -108,7 +109,16 @@
                     <th scope="row">
                         {{ ($datas->currentpage()-1) * $datas->perpage() + $loop->index + 1 }}
                     </th>
-
+                    <td>
+                        @if($data->pic)
+                        <img
+                            width="200"
+                            src="{{ asset('storage/'. $data->pic) }}"
+                            class="img-preview img-fluid mb-2 d-block"
+                            alt="about Image"
+                        />
+                        @else - @endif
+                    </td>
                     <td>{{ $data->name }}</td>
                     <td>
                         {{ $data->type->brand->name }} {{ $data->type->name }}
@@ -117,9 +127,7 @@
                         {{ $data->type->category->name }}
                     </td>
                     <td>{{ $data->group->name }}</td>
-                    <td>
-                        {{ $data->flag->name }}
-                    </td>
+
                     <td>
                         <a
                             href="/dashboard/units/{{ $data->slug }}"

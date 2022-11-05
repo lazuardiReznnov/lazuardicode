@@ -39,7 +39,9 @@ return new class extends Migration {
             $table->string('color')->nullable();
             $table->string('vin')->nullable();
             $table->string('engine_numb')->nullable();
+            $table->year('year')->nullable();
             $table->string('pic')->nullable();
+            $table->string('status')->default('nonaktif');
             $table->timestamps();
         });
     }
