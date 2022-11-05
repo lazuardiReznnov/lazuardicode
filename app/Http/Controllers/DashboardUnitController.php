@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 use Illuminate\support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\UnitImport;
+use Cviebrock\EloquentSluggable\Services\SlugService;
+use App\Models\Group;
+use App\Models\Flag;
+use App\Models\Bak;
+use App\Models\Brand;
+use App\Models\Category;
+use App\Models\Type;
 
 class DashboardUnitController extends Controller
 {
@@ -20,7 +27,7 @@ class DashboardUnitController extends Controller
         return view('dashboard.units.unit.index', [
             'title' => 'Management Unit',
             'datas' => Unit::latest()
-                ->paginate(10)
+                ->paginate(5)
                 ->withQueryString(),
         ]);
     }
@@ -32,6 +39,11 @@ class DashboardUnitController extends Controller
      */
     public function create()
     {
+        return view('dashboard.units.unit.create', [
+            'title' => 'Add New User',
+            'brands' => Brand::all(),
+            'categories' => Category::all(),
+        ]);
     }
 
     /**
@@ -113,5 +125,20 @@ class DashboardUnitController extends Controller
                 'New Units Has Been Aded.!'
             );
         }
+    }
+
+    public function checkSlug(Request $request)
+    {
+        $slug = SlugService::createSlug(Unit::class, 'slug', $request->name);
+        return response()->json(['slug' => $slug]);
+    }
+
+    public function gettype(Request $request)
+    {
+        $type = Type::where([
+            ['brand_id', $request->brand],
+            ['category_id', $request->category],
+        ])->get();
+        return response()->json($type);
     }
 }

@@ -114,10 +114,17 @@
                         <img
                             width="200"
                             src="{{ asset('storage/'. $data->pic) }}"
-                            class="img-preview img-fluid mb-2 d-block"
+                            class="rounded-circle mx-auto d-block shadow my-3"
                             alt="about Image"
                         />
-                        @else - @endif
+                        @else
+                        <img
+                            class="rounded-circle mx-auto d-block shadow my-3"
+                            src="http://source.unsplash.com/200x200?truck"
+                            alt=""
+                            width="50"
+                        />
+                        @endif
                     </td>
                     <td>{{ $data->name }}</td>
                     <td>
@@ -173,9 +180,10 @@
         </table>
         <div class="row">
             <div class="col-md-8">
-                {{ $datas->links() }}
+                {{ $datas->onEachside(2)->links() }}
             </div>
         </div>
     </div>
 </div>
+
 @endsection

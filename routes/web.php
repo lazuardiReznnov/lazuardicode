@@ -61,6 +61,16 @@ Route::middleware('auth')->group(function () {
             DashboardUnitController::class,
             'fileImportCreate',
         ]);
+
+        Route::get('/dashboard/unit/checkSlug', [
+            DashboardUnitController::class,
+            'checkSlug',
+        ]);
+
+        Route::get('/dashboard/unit/getType', [
+            DashboardUnitController::class,
+            'gettype',
+        ]);
         // endUnit
     });
 });
