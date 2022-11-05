@@ -154,9 +154,9 @@
                         class="nav-link collapsed"
                         href="#"
                         data-bs-toggle="collapse"
-                        data-bs-target="#pagesCollapseBrand"
+                        data-bs-target="#pagesCollapseUnit"
                         aria-expanded="false"
-                        aria-controls="pagesCollapseBrand"
+                        aria-controls="pagesCollapseUnit"
                     >
                         Unit
                         <div class="sb-sidenav-collapse-arrow">
@@ -165,7 +165,7 @@
                     </a>
                     <div
                         class="collapse"
-                        id="pagesCollapseBrand"
+                        id="pagesCollapseUnit"
                         aria-labelledby="headingOne"
                         data-bs-parent="#sidenavAccordionPages"
                     >
@@ -176,7 +176,7 @@
                                 >Karoseri</a
                             >
                             <a class="nav-link" href="password.html">Types</a>
-                            <a class="nav-link" href="password.html">Unit</a>
+                            <a class="nav-link" href="/dashboard/units">Unit</a>
                         </nav>
                     </div>
                     <a

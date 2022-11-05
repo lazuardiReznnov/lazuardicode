@@ -25,4 +25,9 @@ class Flag extends Model
     {
         return 'slug';
     }
+
+    public function unit()
+    {
+        return $this->hasMany(Unit::class);
+    }
 }

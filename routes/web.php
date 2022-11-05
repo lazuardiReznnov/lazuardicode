@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardProfilUserController;
+use App\Http\Controllers\DashboardUnitController;
 use App\Http\Controllers\DashboardUserController;
 
 /*
@@ -38,7 +39,6 @@ Route::middleware('auth')->group(function () {
             DashboardUserController::class,
             'fileImport',
         ]);
-
         Route::get('/dashboard/users/file-import-create', [
             DashboardUserController::class,
             'fileImportCreate',
@@ -50,6 +50,8 @@ Route::middleware('auth')->group(function () {
             DashboardProfilUserController::class
         )->only('index', 'update');
         // end Route Profil
+
+        route::resource('/dashboard/units', DashboardUnitController::class);
     });
 });
 

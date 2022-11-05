@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             GroupSeeder::class,
             FlagSeeder::class,
             TypeSeeder::class,
+            UnitSeeder::class,
         ]);
     }
 }
