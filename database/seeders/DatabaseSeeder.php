@@ -26,6 +26,9 @@ class DatabaseSeeder extends Seeder
             BrandSeeder::class,
             CategorySeeder::class,
             BakSeeder::class,
+            GroupSeeder::class,
+            FlagSeeder::class,
+            TypeSeeder::class,
         ]);
     }
 }

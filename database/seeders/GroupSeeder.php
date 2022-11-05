@@ -4,9 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Bak;
+use App\Models\Group;
 
-class BakSeeder extends Seeder
+class GroupSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,44 +15,30 @@ class BakSeeder extends Seeder
      */
     public function run()
     {
-        Bak::Create([
-            'name' => 'Flat Dek',
-            'slug' => 'flat-dek',
+        Group::create([
+            'name' => 'Sanqua Bogor',
+            'slug' => 'sanqua-bogor',
             'description' =>
                 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit porro perferendis consectetur voluptatibus fuga reiciendis alias laborum, iste illo expedita.',
         ]);
 
-        Bak::Create([
-            'name' => 'Box',
-            'slug' => 'box',
+        Group::create([
+            'name' => 'Sanqua Kuningan',
+            'slug' => 'sanqua-kuningan',
             'description' =>
                 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit porro perferendis consectetur voluptatibus fuga reiciendis alias laborum, iste illo expedita.',
         ]);
 
-        Bak::Create([
-            'name' => 'Wing Box',
-            'slug' => 'wing-box',
+        Group::create([
+            'name' => 'Losbak Hebel',
+            'slug' => 'losbak-hebel',
             'description' =>
                 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit porro perferendis consectetur voluptatibus fuga reiciendis alias laborum, iste illo expedita.',
         ]);
 
-        Bak::Create([
-            'name' => 'Bak Central',
-            'slug' => 'bak-central',
-            'description' =>
-                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit porro perferendis consectetur voluptatibus fuga reiciendis alias laborum, iste illo expedita.',
-        ]);
-
-        Bak::Create([
-            'name' => 'Bak Kayu',
-            'slug' => 'bak-kayu',
-            'description' =>
-                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit porro perferendis consectetur voluptatibus fuga reiciendis alias laborum, iste illo expedita.',
-        ]);
-
-        Bak::Create([
-            'name' => 'Three Way',
-            'slug' => 'three-way',
+        Group::create([
+            'name' => 'Lintas',
+            'slug' => 'lintas',
             'description' =>
                 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit porro perferendis consectetur voluptatibus fuga reiciendis alias laborum, iste illo expedita.',
         ]);

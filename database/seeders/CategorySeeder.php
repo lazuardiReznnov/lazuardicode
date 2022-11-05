@@ -42,12 +42,5 @@ class CategorySeeder extends Seeder
             'description' =>
                 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit porro perferendis consectetur voluptatibus fuga reiciendis alias laborum, iste illo expedita.',
         ]);
-
-        Category::create([
-            'name' => 'Colt Diesel',
-            'slug' => 'cd',
-            'description' =>
-                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit porro perferendis consectetur voluptatibus fuga reiciendis alias laborum, iste illo expedita.',
-        ]);
     }
 }

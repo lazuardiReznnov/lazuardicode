@@ -4,9 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Bak;
+use App\Models\Type;
 
-class BakSeeder extends Seeder
+class TypeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,44 +15,47 @@ class BakSeeder extends Seeder
      */
     public function run()
     {
-        Bak::Create([
-            'name' => 'Flat Dek',
-            'slug' => 'flat-dek',
+        Type::create([
+            'brand_id' => 1,
+            'category_id' => 2,
+            'name' => 'Dutro 130HD',
+            'slug' => 'dutro-130hd',
             'description' =>
                 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit porro perferendis consectetur voluptatibus fuga reiciendis alias laborum, iste illo expedita.',
         ]);
 
-        Bak::Create([
-            'name' => 'Box',
-            'slug' => 'box',
+        Type::create([
+            'brand_id' => 1,
+            'category_id' => 2,
+            'name' => 'Dutro 300 series 110HD',
+            'slug' => 'dutro-110hd',
             'description' =>
                 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit porro perferendis consectetur voluptatibus fuga reiciendis alias laborum, iste illo expedita.',
         ]);
 
-        Bak::Create([
-            'name' => 'Wing Box',
-            'slug' => 'wing-box',
+        Type::create([
+            'brand_id' => 1,
+            'category_id' => 2,
+            'name' => 'Dutro 300 series 130HD Long',
+            'slug' => 'dutro-130hd-l',
             'description' =>
                 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit porro perferendis consectetur voluptatibus fuga reiciendis alias laborum, iste illo expedita.',
         ]);
 
-        Bak::Create([
-            'name' => 'Bak Central',
-            'slug' => 'bak-central',
+        Type::create([
+            'brand_id' => 2,
+            'category_id' => 2,
+            'name' => 'Canter Super Speed 125',
+            'slug' => 'canter-super-speed-125',
             'description' =>
                 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit porro perferendis consectetur voluptatibus fuga reiciendis alias laborum, iste illo expedita.',
         ]);
 
-        Bak::Create([
-            'name' => 'Bak Kayu',
-            'slug' => 'bak-kayu',
-            'description' =>
-                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit porro perferendis consectetur voluptatibus fuga reiciendis alias laborum, iste illo expedita.',
-        ]);
-
-        Bak::Create([
-            'name' => 'Three Way',
-            'slug' => 'three-way',
+        Type::create([
+            'brand_id' => 1,
+            'category_id' => 4,
+            'name' => 'Ranger 500  FG 215 JE',
+            'slug' => 'ranger-500-fg-215-je',
             'description' =>
                 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit porro perferendis consectetur voluptatibus fuga reiciendis alias laborum, iste illo expedita.',
         ]);

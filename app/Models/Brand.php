@@ -24,4 +24,9 @@ class Brand extends Model
     {
         return 'slug';
     }
+
+    public function type()
+    {
+        return $this->hasMany(Type::class);
+    }
 }
