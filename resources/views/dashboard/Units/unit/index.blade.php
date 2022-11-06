@@ -112,10 +112,10 @@
                     <td>
                         @if($data->pic)
                         <img
-                            width="200"
+                            width="50"
                             src="{{ asset('storage/'. $data->pic) }}"
                             class="rounded-circle mx-auto d-block shadow my-3"
-                            alt="about Image"
+                            alt="Unit Image"
                         />
                         @else
                         <img
@@ -133,7 +133,6 @@
                     <td>
                         {{ $data->type->category->name }}
                     </td>
-                    <td>{{ $data->group->name }}</td>
 
                     <td>
                         <a

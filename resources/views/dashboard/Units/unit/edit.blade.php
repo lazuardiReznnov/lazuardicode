@@ -1,11 +1,11 @@
 @extends('layout.dashboard.main') @section('content')
-<h1 class="mt-4">Form Input Unit</h1>
+<h1 class="mt-4">Form Edit Unit</h1>
 <ol class="breadcrumb mb-4">
     <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
     <li class="breadcrumb-item">
         <a href="/dashboard/units">Unit Management</a>
     </li>
-    <li class="breadcrumb-item active">Form Input Unit</li>
+    <li class="breadcrumb-item active">Form Edit Unit</li>
 </ol>
 <div class="card mb-4 col-md-8">
     <div class="card-header">
@@ -16,11 +16,11 @@
         <div class="row mb-1">
             <div class="col-sm ms-2 mb-4">
                 <form
-                    action="/dashboard/units"
+                    action="/dashboard/units/{{ $unit->slug }}"
                     method="post"
                     enctype="multipart/form-data"
                 >
-                    @csrf
+                    @csrf @method('put')
                     <div class="form-floating mb-3">
                         <input
                             type="text"
@@ -28,6 +28,7 @@
                             id="name"
                             placeholder="reg Number"
                             name="name"
+                            value="{{ old('name', $unit->name) }}"
                         />
                         <label for="floatingInput">Reg Number</label>
                         @error('name')
@@ -44,6 +45,7 @@
                             id="slug"
                             placeholder="reg Number"
                             name="slug"
+                            value="{{ old('', $unit->name) }}"
                             readonly
                         />
                         <label for="floatingInput">Slug</label>
@@ -63,7 +65,8 @@
                         >
                             <option selected>Select Category</option>
                             @foreach($categories as $category)
-                            @if(old('category_id')==$category->id)
+                            @if(old('category_id',
+                            $unit->type->category_id)==$category->id)
                             <option value="{{ $category->id }}" selected>
                                 {{ $category->name }}
                             </option>
@@ -83,14 +86,15 @@
 
                     <div class="form-floating mb-3">
                         <select
-                            class="form-select @error('brand') is-invalid @enderror"
+                            class="form-select @error('brand_id') is-invalid @enderror"
                             id="brand"
                             aria-label="Floating label select example"
-                            name="brand"
+                            name="brand_id"
                         >
                             <option selected>Select Brand</option>
                             @foreach($brands as $brand)
-                            @if(old('brand')==$brand->id)
+                            @if(old('brand_id',$unit->type->brand_id
+                            )==$brand->id)
                             <option value="{{ $brand->id }}" selected>
                                 {{ $brand->name }}
                             </option>
@@ -114,7 +118,13 @@
                             aria-label="Default select example"
                             id="type"
                             name="type_id"
-                        ></select>
+                        >
+                            @if(old('type_id',$unit->type_id)== $unit->type_id)
+                            <option value="{{ $unit->type_id }}" selected>
+                                {{ $unit->type->name }}
+                            </option>
+                            @endif
+                        </select>
                         <label for="floatingSelect">Type</label>
                     </div>
 
@@ -126,7 +136,8 @@
                             name="bak_id"
                         >
                             <option selected>Select bak</option>
-                            @foreach($baks as $bak) @if(old('bak_id')==$bak->id)
+                            @foreach($baks as $bak)
+                            @if(old('bak_id',$unit->bak_id)==$bak->id)
                             <option value="{{ $bak->id }}" selected>
                                 {{ $bak->name }}
                             </option>
@@ -152,8 +163,8 @@
                             name="flag_id"
                         >
                             <option selected>Select flag</option>
-                            @foreach($flags as $flag)
-                            @if(old('flag_id')==$flag->id)
+                            @foreach($flags as $flag) @if(old('flag_id',
+                            $unit->flag_id)==$flag->id)
                             <option value="{{ $flag->id }}" selected>
                                 {{ $flag->name }}
                             </option>
@@ -180,7 +191,7 @@
                         >
                             <option selected>Select groups</option>
                             @foreach($groups as $group)
-                            @if(old('group_id')==$group->id)
+                            @if(old('group_id',$unit->group_id)==$group->id)
                             <option value="{{ $group->id }}" selected>
                                 {{ $group->name }}
                             </option>
@@ -205,6 +216,7 @@
                             id="color"
                             placeholder="Colours"
                             name="color"
+                            value="{{ old('color', $unit->color) }}"
                         />
                         <label for="floatingInput">Colours</label>
                         @error('color')
@@ -221,6 +233,7 @@
                             id="vin"
                             placeholder="vin"
                             name="vin"
+                            value="{{ old('vin', $unit->vin) }}"
                         />
                         <label for="floatingInput">Vin</label>
                         @error('vin')
@@ -237,6 +250,7 @@
                             id="engine_numb"
                             placeholder="engine Number"
                             name="engine_numb"
+                            value="{{ old('engine_numb', $unit->engine_numb) }}"
                         />
                         <label for="floatingInput">Engine Number</label>
                         @error('engine_numb')
@@ -251,6 +265,9 @@
                         <select name="year" class="form-select">
                             <option selected>--Choice Year--</option>
                             @for ($a=2012;$a<=$now;$a++)
+                            @if(old($a,$unit->year)==$a)
+                            <option value="{{ $a }}" selected>{{ $a }}</option>
+                            @endif
                             <option value="{{ $a }}">{{ $a }}</option>
                             @endfor
                         </select>
@@ -266,11 +283,19 @@
                         <label for="image" class="form-label"
                             >Upload Image</label
                         >
-                        <img
-                            width="200"
-                            class="img-preview img-fluid mb-2"
-                            alt=""
+                        @if($unit->img)
+                        <input
+                            type="hidden"
+                            name="old_pic"
+                            value="{{ $unit->pic }}"
                         />
+                        <img
+                            src="{{ asset('storage/'. $unit->pic) }}"
+                            class="d-block img-preview img-fluid mb-2 col-sm-5"
+                        />
+                        @else
+                        <img class="img-preview img-fluid mb-2 col-sm-5" />
+                        @endif
                         <input
                             class="form-control @error('pic') is-invalid @enderror"
                             type="file"

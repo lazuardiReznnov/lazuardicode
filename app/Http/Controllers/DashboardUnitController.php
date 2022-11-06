@@ -43,6 +43,9 @@ class DashboardUnitController extends Controller
             'title' => 'Add New User',
             'brands' => Brand::all(),
             'categories' => Category::all(),
+            'baks' => Bak::all(),
+            'flags' => Flag::all(),
+            'groups' => Group::all(),
         ]);
     }
 
@@ -54,7 +57,30 @@ class DashboardUnitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'type_id' => 'required',
+            'bak_id' => 'required',
+            'flag_id' => 'required',
+            'group_id' => 'required',
+            'name' => 'required|max:20|unique:units',
+            'slug' => 'required|unique:units',
+            'color' => 'required',
+            'vin' => 'required',
+            'engine_numb' => 'required',
+            'year' => 'required',
+            'pic' => 'image|file|max:2048',
+        ]);
+
+        if ($request->file('pic')) {
+            $validatedData['pic'] = $request->file('pic')->store('unit-pic');
+        }
+
+        Unit::create($validatedData);
+
+        return redirect('/dashboard/units')->with(
+            'success',
+            'New Unit Has Been aded.'
+        );
     }
 
     /**
@@ -79,7 +105,15 @@ class DashboardUnitController extends Controller
      */
     public function edit(Unit $unit)
     {
-        //
+        return view('dashboard.units.unit.edit', [
+            'title' => 'Edit Unit',
+            'unit' => $unit,
+            'brands' => Brand::all(),
+            'categories' => Category::all(),
+            'baks' => Bak::all(),
+            'flags' => Flag::all(),
+            'groups' => Group::all(),
+        ]);
     }
 
     /**
@@ -91,7 +125,39 @@ class DashboardUnitController extends Controller
      */
     public function update(Request $request, Unit $unit)
     {
-        //
+        $rules = [
+            'type_id' => 'required',
+            'bak_id' => 'required',
+            'flag_id' => 'required',
+            'group_id' => 'required',
+            'color' => 'required',
+            'vin' => 'required',
+            'engine_numb' => 'required',
+            'year' => 'required',
+            'pic' => 'image|file|max:2048',
+        ];
+
+        if ($request->name != $unit->name) {
+            $rules['name'] = 'required|unique:units|max:25';
+        }
+        if ($request->slug != $unit->slug) {
+            $rules['slug'] = 'required|unique:units';
+        }
+        $validatedData = $request->validate($rules);
+
+        if ($request->file('pic')) {
+            if ($request->old_pic) {
+                storage::delete($request->old_pic);
+            }
+            $validatedData['pic'] = $request->file('pic')->store('unit-pic');
+        }
+
+        Unit::where('id', $unit->id)->update($validatedData);
+
+        return redirect('/dashboard/units')->with(
+            'success',
+            'Unit Has Been Updated.!'
+        );
     }
 
     /**
@@ -102,7 +168,14 @@ class DashboardUnitController extends Controller
      */
     public function destroy(Unit $unit)
     {
-        //
+        Unit::destroy($unit->id);
+        if ($unit->pic) {
+            storage::delete($unit->pic);
+        }
+        return redirect('/dashboard/units')->with(
+            'success',
+            'New Post Has Been Deleted.'
+        );
     }
 
     public function fileImportCreate()
