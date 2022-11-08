@@ -10,14 +10,14 @@ class Letter extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
-    protected $with = ['categoryLetters', 'unit'];
+    protected $with = ['categoryletter', 'unit'];
 
     public function getRouteKeyName()
     {
         return 'reg_numb';
     }
 
-    public function categoryLetters()
+    public function categoryletter()
     {
         return $this->belongsTo(categoryLetters::class);
     }

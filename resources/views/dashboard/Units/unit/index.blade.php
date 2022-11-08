@@ -95,8 +95,6 @@
                     <th>No Registration</th>
                     <th>Brand/Type</th>
                     <th>Category</th>
-                    <th>Group</th>
-
                     <th>Action</th>
                 </tr>
             </thead>

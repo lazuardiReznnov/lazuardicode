@@ -8,9 +8,7 @@
     <li class="breadcrumb-item active">Detail Unit</li>
 </ol>
 <div class="card">
-    <div class="card-header fw-bold">
-        {{ $data->name }}
-    </div>
+    <div class="card-header fw-bold">Spesification</div>
     <div class="card-body">
         <div class="row justify-content-between mb-5">
             <div class="col-md-6">
@@ -33,13 +31,10 @@
             <div class="col-md-6">
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <b>Flag</b><br />
-                        {{ $data->flag->name }}
+                        <b>Registration number</b><br />
+                        {{ $data->name }}
                     </li>
-                    <li class="list-group-item">
-                        <b>Group</b><br />
-                        {{ $data->group->name }}
-                    </li>
+
                     <li class="list-group-item">
                         <b>Category</b><br />
                         {{ $data->type->category->name }}
@@ -53,6 +48,10 @@
                         {{ $data->vin}}
                     </li>
                     <li class="list-group-item">
+                        <b>Engine Number</b><br />
+                        {{ $data->engine_numb}}
+                    </li>
+                    <li class="list-group-item">
                         <b>Color</b><br />
                         {{ $data->color}}
                     </li>
@@ -60,8 +59,68 @@
                         <b>Year</b><br />
                         {{ $data->year}}
                     </li>
+                    <li class="list-group-item">
+                        <b>Flag</b><br />
+                        {{ $data->flag->name }}
+                    </li>
+                    <li class="list-group-item">
+                        <b>Group</b><br />
+                        {{ $data->group->name }}
+                    </li>
                 </ul>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="card mt-3">
+    <div class="card-header fw-bold text-uppercase">Letter</div>
+    <div class="card-body">
+        <div class="row">
+            @foreach($data->Letter as $let)
+            <div class="col-md">
+                <ul class="list-group">
+                    <li
+                        class="list-group-item active text-uppercase"
+                        aria-current="true"
+                    >
+                        {{ $let->categoryletter->name }}
+                    </li>
+                    <li class="list-group-item">
+                        <b>Registration No.</b><br />{{ $let->reg_num }}
+                    </li>
+                    <li class="list-group-item">
+                        <b>Owner</b><br />{{ $let->owner }}
+                    </li>
+                    <li class="list-group-item">
+                        <b>Registration Year</b><br />
+                        {{ $let->reg_year }}
+                    </li>
+                    <li class="list-group-item">
+                        <b>Location Code</b><br />{{ $let->loc_code }}
+                    </li>
+                    @if($let->tax != 0)
+                    <li class="list-group-item">
+                        @php $date_now = date("Y/m/d"); @endphp
+
+                        <b>Tax</b><br /><span
+                            class="text-{{ \Lazuardicode::expire($let->taxt,$date_now) }}"
+                        >
+                            {{ $let->tax }}</span
+                        >
+                    </li>
+                    @endif
+                    <li class="list-group-item">
+                        <b>expire date</b><br />
+                        <span
+                            class="text-{{ \Lazuardicode::expire($let->taxt,$date_now) }}"
+                        >
+                            {{ $let->expire_date }}</span
+                        >
+                    </li>
+                </ul>
+            </div>
+            @endforeach
         </div>
     </div>
 </div>
