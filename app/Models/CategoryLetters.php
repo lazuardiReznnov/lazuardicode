@@ -6,12 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 
-class Unit extends Model
+class CategoryLetters extends Model
 {
     use HasFactory, Sluggable;
 
     protected $guarded = ['id'];
-    protected $with = ['type', 'flag', 'group'];
 
     public function sluggable(): array
     {
@@ -25,26 +24,6 @@ class Unit extends Model
     public function getRouteKeyName()
     {
         return 'slug';
-    }
-
-    public function type()
-    {
-        return $this->belongsTo(Type::class);
-    }
-
-    public function bak()
-    {
-        return $this->belongsTo(Bak::class);
-    }
-
-    public function flag()
-    {
-        return $this->belongsTo(Flag::class);
-    }
-
-    public function group()
-    {
-        return $this->belongsTo(Group::class);
     }
 
     public function letter()

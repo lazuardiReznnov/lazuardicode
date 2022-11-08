@@ -7,7 +7,6 @@
 
 <div class="card mb-4">
     <div class="card-body">
-        <p class="mb-0">Data Unit Management</p>
         <!-- pesan -->
         @if(session()->has('loginError'))
         <div
