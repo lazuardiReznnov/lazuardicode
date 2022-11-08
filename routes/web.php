@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardLetterController;
 use App\Http\Controllers\DashboardProfilUserController;
 use App\Http\Controllers\DashboardUnitController;
 use App\Http\Controllers\DashboardUserController;
@@ -72,6 +73,14 @@ Route::middleware('auth')->group(function () {
             'gettype',
         ]);
         // endUnit
+
+        // letter
+        Route::resource(
+            '/dashboard/unit/letter',
+            DashboardLetterController::class
+        );
+
+        // endletter
     });
 });
 
