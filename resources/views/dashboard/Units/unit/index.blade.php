@@ -59,7 +59,7 @@
                     <i class="fas fa-plus-circle"></i> Add
                 </a>
                 <a
-                    href="/dashboard/units/file-import-create"
+                    href="/dashboard/unit/file-import-create"
                     class="btn btn-primary"
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
@@ -91,11 +91,12 @@
             <thead>
                 <tr>
                     <th>#</th>
+                    <th>Pic</th>
                     <th>No Registration</th>
                     <th>Brand/Type</th>
                     <th>Category</th>
                     <th>Group</th>
-                    <th>Flag</th>
+
                     <th>Action</th>
                 </tr>
             </thead>
@@ -107,7 +108,23 @@
                     <th scope="row">
                         {{ ($datas->currentpage()-1) * $datas->perpage() + $loop->index + 1 }}
                     </th>
-
+                    <td>
+                        @if($data->pic)
+                        <img
+                            width="50"
+                            src="{{ asset('storage/'. $data->pic) }}"
+                            class="rounded-circle mx-auto d-block shadow my-3"
+                            alt="Unit Image"
+                        />
+                        @else
+                        <img
+                            class="rounded-circle mx-auto d-block shadow my-3"
+                            src="http://source.unsplash.com/200x200?truck"
+                            alt=""
+                            width="50"
+                        />
+                        @endif
+                    </td>
                     <td>{{ $data->name }}</td>
                     <td>
                         {{ $data->type->brand->name }} {{ $data->type->name }}
@@ -115,10 +132,7 @@
                     <td>
                         {{ $data->type->category->name }}
                     </td>
-                    <td>{{ $data->group->name }}</td>
-                    <td>
-                        {{ $data->flag->name }}
-                    </td>
+
                     <td>
                         <a
                             href="/dashboard/units/{{ $data->slug }}"
@@ -164,9 +178,10 @@
         </table>
         <div class="row">
             <div class="col-md-8">
-                {{ $datas->links() }}
+                {{ $datas->onEachside(2)->links() }}
             </div>
         </div>
     </div>
 </div>
+
 @endsection

@@ -62,5 +62,13 @@ class FlagSeeder extends Seeder
             'address' => 'Jl. Raya Korelet Kabupaten Tangerang',
             'phone' => '021-2220000',
         ]);
+
+        Flag::create([
+            'name' => 'CV. GEMA MAKMUR ABADI',
+            'slug' => 'gma',
+            'email' => 'gemamakmurabadi@gmail.com',
+            'address' => 'Jl. Raya Korelet Kabupaten Tangerang',
+            'phone' => '021-2220000',
+        ]);
     }
 }

@@ -42,5 +42,12 @@ class GroupSeeder extends Seeder
             'description' =>
                 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit porro perferendis consectetur voluptatibus fuga reiciendis alias laborum, iste illo expedita.',
         ]);
+
+        Group::create([
+            'name' => 'kimia',
+            'slug' => 'kimia',
+            'description' =>
+                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit porro perferendis consectetur voluptatibus fuga reiciendis alias laborum, iste illo expedita.',
+        ]);
     }
 }
