@@ -18,10 +18,17 @@ class DashboardLetterController extends Controller
     {
         return view('dashboard.units.letter.index', [
             'title' => 'Letters Data Unit',
-            'data' => categoryLetters::latest()->get(),
+            // 'data' => categoryLetters::latest()->get(),
+            'data' => CategoryLetters::latest()
+                ->load('letter')
+                ->get(),
         ]);
     }
 
+    public function data(Letter $letter)
+    {
+        return $letter;
+    }
     /**
      * Show the form for creating a new resource.
      *
