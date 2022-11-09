@@ -80,11 +80,6 @@ Route::middleware('auth')->group(function () {
             DashboardLetterController::class
         );
 
-        Route::get('/dashboard/unit/letters/data/{$letter}', [
-            DashboardLetterController::class,
-            'data',
-        ]);
-
         // endletter
     });
 });
