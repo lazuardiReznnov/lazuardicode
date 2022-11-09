@@ -31,11 +31,14 @@ class DashboardLetterController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function data($id)
+    public function data(CategoryLetters $categoryletters)
     {
         return view('dashboard.units.letter.data', [
             'title' => 'Letters Data',
-            'datas' => Letter::where('categoryletter_id', $id)
+            'datas' => letter::where(
+                'category_letters_id',
+                $categoryletters->id
+            )
                 ->latest()
                 ->paginate(10)
                 ->withQueryString(),

@@ -140,7 +140,7 @@
                             ><i class="bi bi-eye"></i
                         ></a>
                         <a
-                            href="/dashboard/unit/letter/{{ $data->id }}/edit"
+                            href="/dashboard/unit/letter/{{ $data->id}}/edit"
                             class="badge bg-warning"
                             data-bs-toggle="tooltip"
                             data-bs-placement="top"

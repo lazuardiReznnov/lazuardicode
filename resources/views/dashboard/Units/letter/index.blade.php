@@ -59,7 +59,7 @@
                     >
                         <a
                             class="small text-white stretched-link"
-                            href="/dashboard/unit/letters/data/{{ $cat->id }}"
+                            href="/dashboard/unit/letter/data/{{ $cat->slug }}"
                             >View Details</a
                         >
                         <div class="small text-white">

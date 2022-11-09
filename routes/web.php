@@ -75,15 +75,16 @@ Route::middleware('auth')->group(function () {
         // endUnit
 
         // letter
+        Route::get('/dashboard/unit/letter/data/{categoryletters}', [
+            DashboardLetterController::class,
+            'data',
+        ]);
+
         Route::resource(
             '/dashboard/unit/letter',
             DashboardLetterController::class
         );
 
-        Route::get('/dashboard/unit/letters/data/{id}', [
-            DashboardLetterController::class,
-            'data',
-        ]);
         // endletter
     });
 });

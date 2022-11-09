@@ -15,7 +15,7 @@ return new class extends Migration {
         Schema::create('letters', function (Blueprint $table) {
             $table->id();
             $table
-                ->foreignId('categoryletter_id')
+                ->foreignId('category_letters_id')
                 ->constrained('category_letters')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
@@ -25,7 +25,7 @@ return new class extends Migration {
                 ->constrained('units')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
-            $table->string('regNum');
+            $table->string('regNum')->unique();
             $table->string('owner');
             $table->text('owner_add');
             $table->year('reg_year');
