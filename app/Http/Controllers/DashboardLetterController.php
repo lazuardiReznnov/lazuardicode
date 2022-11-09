@@ -18,11 +18,10 @@ class DashboardLetterController extends Controller
     {
         return view('dashboard.units.letter.index', [
             'title' => 'Letters Data Unit',
-            'datas' => Letter::latest()
-
-                ->paginate(10)
-                ->withQueryString(),
-            //     'data' => Letter::latest()->get(),
+            // 'datas' => Letter::latest()
+            //     ->paginate(10)
+            //     ->withQueryString(),
+            'data' => CategoryLetters::latest()->get(),
         ]);
     }
 
@@ -31,6 +30,17 @@ class DashboardLetterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function data($id)
+    {
+        return view('dashboard.units.letter.data', [
+            'title' => 'Letters Data',
+            'datas' => Letter::where('categoryletter_id', $id)
+                ->latest()
+                ->paginate(10)
+                ->withQueryString(),
+        ]);
+    }
     public function create()
     {
         //
