@@ -84,7 +84,7 @@
                         class="list-group-item active text-uppercase"
                         aria-current="true"
                     >
-                        {{ $let->categoryletter->name }}
+                        {{ $let->categoryletters->name }}
                     </li>
                     <li class="list-group-item">
                         <b>Registration No.</b><br />{{ $let->reg_num }}

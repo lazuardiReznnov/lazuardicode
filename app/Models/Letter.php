@@ -10,11 +10,11 @@ class Letter extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
-    protected $with = ['categoryletter', 'unit'];
+    protected $with = ['unit', 'categoryletters'];
 
-    public function categoryletter()
+    public function categoryLetters()
     {
-        return $this->belongsTo(categoryLetters::class);
+        return $this->belongsTo(CategoryLetters::class);
     }
 
     public function unit()

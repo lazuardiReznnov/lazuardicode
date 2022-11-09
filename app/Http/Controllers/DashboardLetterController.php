@@ -35,10 +35,8 @@ class DashboardLetterController extends Controller
     {
         return view('dashboard.units.letter.data', [
             'title' => 'Letters Data',
-            'datas' => letter::where(
-                'category_letters_id',
-                $categoryletters->id
-            )
+            'datas' => $categoryletters
+                ->letter()
                 ->latest()
                 ->paginate(10)
                 ->withQueryString(),
@@ -72,7 +70,7 @@ class DashboardLetterController extends Controller
     {
         return view('dashboard.Units.letter.show', [
             'title' => 'Detail Letter',
-            'data' => $letter->load('categoryletter', 'unit')->first(),
+            'data' => $letter->load('categoryletters', 'unit')->first(),
         ]);
     }
 

@@ -5,8 +5,10 @@
     <li class="breadcrumb-item">
         <a href="/dashboard/unit/letter">Letters</a>
     </li>
+
     <li class="breadcrumb-item">
-        <a href="/dashboard/unit/letters/data/{{ $data->categoryletter_id }}"
+        <a
+            href="/dashboard/unit/letters/data/{{ $data->categoryletters->slug }}"
             >Letters Data</a
         >
     </li>
