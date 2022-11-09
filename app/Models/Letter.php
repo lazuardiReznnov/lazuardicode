@@ -12,11 +12,6 @@ class Letter extends Model
     protected $guarded = ['id'];
     protected $with = ['categoryletter', 'unit'];
 
-    public function getRouteKeyName()
-    {
-        return 'reg_numb';
-    }
-
     public function categoryletter()
     {
         return $this->belongsTo(categoryLetters::class);

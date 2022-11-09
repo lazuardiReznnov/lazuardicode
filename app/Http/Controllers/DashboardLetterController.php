@@ -43,7 +43,9 @@ class DashboardLetterController extends Controller
     }
     public function create()
     {
-        //
+        return view('dashboard.units.letter.create', [
+            'title' => 'Add Letter',
+        ]);
     }
 
     /**
@@ -65,7 +67,10 @@ class DashboardLetterController extends Controller
      */
     public function show(Letter $letter)
     {
-        //
+        return view('dashboard.Units.letter.show', [
+            'title' => 'Detail Letter',
+            'data' => $letter->load('categoryletter', 'unit')->first(),
+        ]);
     }
 
     /**
@@ -76,7 +81,10 @@ class DashboardLetterController extends Controller
      */
     public function edit(Letter $letter)
     {
-        //
+        return view('dashboard.unit.letter.edit', [
+            'title' => 'Edit Letter',
+            '$data' => $letter,
+        ]);
     }
 
     /**

@@ -109,7 +109,7 @@
                         {{ ($datas->currentpage()-1) * $datas->perpage() + $loop->index + 1 }}
                     </th>
                     <td>{{ $data->unit->name }}</td>
-                    <td>{{ $data->reg_num }}</td>
+                    <td>{{ $data->regNum }}</td>
                     <td>
                         {{ $data->owner }}
                     </td>
@@ -132,7 +132,7 @@
 
                     <td>
                         <a
-                            href="/dashboard/unit/letter/{{ $data->reg_num }}"
+                            href="/dashboard/unit/letter/{{ $data->id}}"
                             class="badge bg-success"
                             data-bs-toggle="tooltip"
                             data-bs-placement="top"
@@ -140,7 +140,7 @@
                             ><i class="bi bi-eye"></i
                         ></a>
                         <a
-                            href="/dashboard/units/{{ $data->reg_num }}/edit"
+                            href="/dashboard/unit/letter/{{ $data->id }}/edit"
                             class="badge bg-warning"
                             data-bs-toggle="tooltip"
                             data-bs-placement="top"
@@ -149,7 +149,7 @@
                         ></a>
 
                         <form
-                            action="/dashboard/units/{{ $data->reg_num }}"
+                            action="/dashboard/unit/letter/{{ $data->id }}"
                             method="post"
                             class="d-inline"
                         >

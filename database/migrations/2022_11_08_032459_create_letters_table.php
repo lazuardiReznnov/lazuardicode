@@ -25,7 +25,7 @@ return new class extends Migration {
                 ->constrained('units')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
-            $table->string('reg_num');
+            $table->string('regNum');
             $table->string('owner');
             $table->text('owner_add');
             $table->year('reg_year');

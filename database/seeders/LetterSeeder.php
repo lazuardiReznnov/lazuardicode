@@ -18,7 +18,7 @@ class LetterSeeder extends Seeder
         Letter::create([
             'categoryletter_id' => 1,
             'unit_id' => 1,
-            'reg_num' => '18741489BT/MJ/2017',
+            'regNum' => '18741489BT/MJ/2017',
             'owner' => 'PT GEMA CIPTA GEMILANG',
             'owner_add' => 'Jl. Raya Korelet Kabupaten Tangerang',
             'reg_year' => '2017',
@@ -30,7 +30,7 @@ class LetterSeeder extends Seeder
         Letter::create([
             'categoryletter_id' => 1,
             'unit_id' => 2,
-            'reg_num' => '18741487BT/MJ/2017',
+            'regNum' => '18741487BT/MJ/2017',
             'owner' => 'PT GEMA CIPTA GEMILANG',
             'owner_add' => 'Jl. Raya Korelet Kabupaten Tangerang',
             'reg_year' => '2017',
@@ -42,7 +42,7 @@ class LetterSeeder extends Seeder
         Letter::create([
             'categoryletter_id' => 2,
             'unit_id' => 1,
-            'reg_num' => 'BB03C17000365',
+            'regNum' => 'BB03C17000365',
             'owner' => 'PT GEMA CIPTA GEMILANG',
             'owner_add' => 'Jl. Raya Korelet Kabupaten Tangerang',
             'reg_year' => '2017',
@@ -52,7 +52,7 @@ class LetterSeeder extends Seeder
         Letter::create([
             'categoryletter_id' => 2,
             'unit_id' => 2,
-            'reg_num' => 'BB03C17000365',
+            'regNum' => 'BB03C17000365',
             'owner' => 'PT GEMA CIPTA GEMILANG',
             'owner_add' => 'Jl. Raya Korelet Kabupaten Tangerang',
             'reg_year' => '2017',
