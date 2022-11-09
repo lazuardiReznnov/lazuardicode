@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\CategoryLetters;
+use App\Models\Letter;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -30,6 +33,8 @@ class DatabaseSeeder extends Seeder
             FlagSeeder::class,
             TypeSeeder::class,
             UnitSeeder::class,
+            CategoryletterSeeder::class,
+            LetterSeeder::class,
         ]);
     }
 }

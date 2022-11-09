@@ -193,6 +193,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        App\Providers\LazuardicodeServiceProvider::class,
     ],
 
     /*
@@ -209,6 +210,7 @@ return [
     'aliases' => Facade::defaultAliases()
         ->merge([
             // 'ExampleClass' => App\Example\ExampleClass::class,
+            'Lazuardicode' => App\Helpers\Lazuardicode::class,
         ])
         ->toArray(),
 ];
