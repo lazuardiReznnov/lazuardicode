@@ -73,6 +73,7 @@
                     id="regNum"
                     placeholder="Registration  Number"
                     name="regNum"
+                    value="{{ old('regNum') }}"
                 />
                 <label for="floatingInput">Registration Number</label>
                 @error('regNum')
@@ -89,6 +90,7 @@
                     id="owner"
                     placeholder="Owner"
                     name="owner"
+                    value="{{ old('owner') }}"
                 />
                 <label for="floatingInput">Owner</label>
                 @error('owner')
@@ -103,8 +105,9 @@
                     class="form-control"
                     placeholder="Address"
                     id="floatingTextarea"
-                    name="address"
-                ></textarea>
+                    name="owner_add"
+                    >{{ old("address") }}</textarea
+                >
                 <label for="floatingTextarea">Address</label>
             </div>
 
@@ -131,6 +134,7 @@
                     id="loc_code"
                     placeholder="loc_code"
                     name="loc_code"
+                    value="{{ old('loc_code') }}"
                 />
                 <label for="floatingInput">Location</label>
                 @error('loc_code')
@@ -147,6 +151,7 @@
                     id="lpc"
                     placeholder="lpc"
                     name="lpc"
+                    value="{{ old('lpc') }}"
                 />
                 <label for="floatingInput">License Plate Color</label>
                 @error('lpc')
@@ -163,22 +168,7 @@
                     id="vodn"
                     placeholder="vodn"
                     name="vodn"
-                />
-                <label for="floatingInput">Vehicle Ownership Data Number</label>
-                @error('vodn')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-                @enderror
-            </div>
-
-            <div class="form-floating mb-3">
-                <input
-                    type="text"
-                    class="form-control @error('vodn') is-invalid @enderror"
-                    id="vodn"
-                    placeholder="vodn"
-                    name="vodn"
+                    value="{{ old('vodn') }}"
                 />
                 <label for="floatingInput">Vehicle Ownership Data Number</label>
                 @error('vodn')
@@ -195,6 +185,7 @@
                     id="tax"
                     placeholder="tax"
                     name="tax"
+                    value="{{ old('tax') }}"
                 />
                 <label for="floatingInput">Tax Date</label>
                 @error('tax')
@@ -211,6 +202,7 @@
                     id="expire_date"
                     placeholder="expire_date"
                     name="expire_date"
+                    value="{{ old('expire_date') }}"
                 />
                 <label for="floatingInput">Expire Date</label>
                 @error('expire_date')
