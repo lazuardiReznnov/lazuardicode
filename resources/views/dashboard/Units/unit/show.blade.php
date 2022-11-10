@@ -87,7 +87,7 @@
                         {{ $let->categoryletters->name }}
                     </li>
                     <li class="list-group-item">
-                        <b>Registration No.</b><br />{{ $let->reg_num }}
+                        <b>Registration No.</b><br />{{ $let->regNum }}
                     </li>
                     <li class="list-group-item">
                         <b>Owner</b><br />{{ $let->owner }}
