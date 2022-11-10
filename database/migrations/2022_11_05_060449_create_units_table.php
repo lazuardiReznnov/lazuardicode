@@ -41,6 +41,8 @@ return new class extends Migration {
             $table->string('engine_numb')->nullable();
             $table->year('year')->nullable();
             $table->string('pic')->nullable();
+            $table->string('fuel')->nullable();
+            $table->string('cylinder')->nullable();
             $table->string('status')->default('nonaktif');
             $table->timestamps();
         });

@@ -30,6 +30,8 @@ return new class extends Migration {
             $table->text('owner_add');
             $table->year('reg_year');
             $table->string('loc_code');
+            $table->string('lpc')->nullable();
+            $table->string('vodn')->nullable();
             $table->date('tax')->nullable();
             $table->date('expire_date');
             $table->string('pic')->nullable();

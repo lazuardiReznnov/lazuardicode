@@ -23,6 +23,8 @@ class LetterSeeder extends Seeder
             'owner_add' => 'Jl. Raya Korelet Kabupaten Tangerang',
             'reg_year' => '2017',
             'loc_code' => '70-UPT Balaraja',
+            'lpc' => 'Yellow',
+            'vodn' => 'N07905769H1',
             'tax' => '2022/09/11',
             'expire_date' => '2022/09/11',
         ]);
@@ -35,6 +37,8 @@ class LetterSeeder extends Seeder
             'owner_add' => 'Jl. Raya Korelet Kabupaten Tangerang',
             'reg_year' => '2017',
             'loc_code' => '70-UPT Balaraja',
+            'lpc' => 'Yellow',
+            'vodn' => 'N07905767H1',
             'tax' => '2022/09/11',
             'expire_date' => '2022/09/11',
         ]);

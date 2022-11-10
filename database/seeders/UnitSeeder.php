@@ -25,7 +25,9 @@ class UnitSeeder extends Seeder
             'color' => 'Green',
             'vin' => 'MJEC1JG41H5159330',
             'engine_numb' => 'W04DTPJ74344',
-            'year' => 2018,
+            'year' => 2017,
+            'fuel' => 'Solar',
+            'cylinder' => '4009',
         ]);
 
         Unit::create([
@@ -38,7 +40,9 @@ class UnitSeeder extends Seeder
             'color' => 'Green',
             'vin' => 'MJEC1JG41H5159334',
             'engine_numb' => 'W04DTPJ74348',
-            'year' => 2018,
+            'year' => 2017,
+            'fuel' => 'Solar',
+            'cylinder' => '4009',
         ]);
     }
 }

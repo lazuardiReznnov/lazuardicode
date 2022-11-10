@@ -70,7 +70,7 @@ class DashboardLetterController extends Controller
     {
         return view('dashboard.Units.letter.show', [
             'title' => 'Detail Letter',
-            'data' => $letter->load('categoryletters', 'unit')->first(),
+            'data' => $letter->load('categoryletters', 'unit'),
         ]);
     }
 
