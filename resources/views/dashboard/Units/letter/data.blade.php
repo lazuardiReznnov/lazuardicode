@@ -47,46 +47,6 @@
 <div class="card">
     <div class="card-header">Letter List</div>
     <div class="card-body">
-        <div class="row mb-1">
-            <div class="col-sm ms-2 mb-4">
-                <a
-                    href="/dashboard/unit/letter/create"
-                    class="btn btn-primary"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="top"
-                    title="Add New Unit"
-                >
-                    <i class="fas fa-plus-circle"></i> Add
-                </a>
-                <a
-                    href="/dashboard/unit/letters/file-import-create"
-                    class="btn btn-primary"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="top"
-                    title="Import Unit"
-                >
-                    <i class="fas fa-plus-circle"></i> Import
-                </a>
-            </div>
-            <div class="col-sm-4 ms-2">
-                <div class="input-group mb-3">
-                    <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Search"
-                        aria-label="search"
-                        aria-describedby="button-addon2"
-                    />
-                    <button
-                        class="btn btn-outline-primary"
-                        type="button"
-                        id="button-addon2"
-                    >
-                        Search
-                    </button>
-                </div>
-            </div>
-        </div>
         <table id="table" class="table table-responsive">
             <thead>
                 <tr>

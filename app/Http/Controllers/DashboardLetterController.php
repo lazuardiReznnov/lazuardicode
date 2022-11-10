@@ -46,6 +46,8 @@ class DashboardLetterController extends Controller
     {
         return view('dashboard.units.letter.create', [
             'title' => 'Add Letter',
+            'data_category_letters' => CategoryLetters::All(),
+            'data_unit' => Unit::all(),
         ]);
     }
 
@@ -57,7 +59,30 @@ class DashboardLetterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'unit_id' => 'required',
+            'category_letters_id' => 'required',
+            'regNum' => 'required',
+            'owner' => 'required',
+            'owner_add' => 'required',
+            'reg_year' => 'required',
+            'loc_code' => 'required',
+            'lpc' => 'required',
+            'vodn' => 'required',
+            'tax' => 'required',
+            'expire_date' => 'required',
+        ]);
+
+        if ($request->file('pic')) {
+            $validatedData['pic'] = $request->file('pic')->store('unit-pic');
+        }
+
+        Letter::create($validateData);
+
+        return redirect('/dashboard/unit/letter')->with(
+            'success',
+            'New Unit Has Been aded.'
+        );
     }
 
     /**

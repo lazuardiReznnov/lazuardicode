@@ -38,6 +38,28 @@
         </div>
         @endif
         <!-- endpesan -->
+        <div class="row mb-1">
+            <div class="col-sm ms-2 mb-4">
+                <a
+                    href="/dashboard/unit/letter/create/"
+                    class="btn btn-primary"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="Add New Unit"
+                >
+                    <i class="fas fa-plus-circle"></i> Add
+                </a>
+                <a
+                    href="/dashboard/unit/letters/file-import-create"
+                    class="btn btn-primary"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="Import Unit"
+                >
+                    <i class="fas fa-plus-circle"></i> Import
+                </a>
+            </div>
+        </div>
     </div>
 </div>
 
