@@ -73,10 +73,6 @@ class DashboardLetterController extends Controller
             'expire_date' => 'required',
         ]);
 
-        if ($request->file('pic')) {
-            $validatedData['pic'] = $request->file('pic')->store('unit-pic');
-        }
-
         Letter::create($validateData);
 
         return redirect('/dashboard/unit/letter')->with(
@@ -95,7 +91,7 @@ class DashboardLetterController extends Controller
     {
         return view('dashboard.Units.letter.show', [
             'title' => 'Detail Letter',
-            'data' => $letter->load('categoryletters', 'unit'),
+            'data' => $letter,
         ]);
     }
 
@@ -107,9 +103,11 @@ class DashboardLetterController extends Controller
      */
     public function edit(Letter $letter)
     {
-        return view('dashboard.unit.letter.edit', [
+        return view('dashboard.units.letter.edit', [
             'title' => 'Edit Letter',
-            '$data' => $letter,
+            'data' => $letter,
+            'data_category_letters' => CategoryLetters::All(),
+            'data_unit' => Unit::all(),
         ]);
     }
 
@@ -122,7 +120,27 @@ class DashboardLetterController extends Controller
      */
     public function update(Request $request, Letter $letter)
     {
-        //
+        $rules = [
+            'unit_id' => 'required',
+            'category_letters_id' => 'required',
+            'owner' => 'required',
+            'owner_add' => 'required',
+            'reg_year' => 'required',
+            'loc_code' => 'required',
+            'lpc' => 'required',
+            'vodn' => 'required',
+            'tax' => 'required',
+            'expire_date' => 'required',
+        ];
+        if ($request->regNum != $letter->regNum) {
+            $rules['regNum'] = 'required|unique:letters|max:25';
+        }
+        $validatedData = $request->validate($rules);
+        Letter::where('id', $letter->id)->update($validatedData);
+
+        return redirect(
+            '/dashboard/unit/letter/data/' . $letter->categoryLetters->slug
+        )->with('success', 'letter Has Been Updated.!');
     }
 
     /**
@@ -133,6 +151,10 @@ class DashboardLetterController extends Controller
      */
     public function destroy(Letter $letter)
     {
-        //
+        Letter::destroy($letter->id);
+
+        return redirect(
+            '/dashboard/unit/letter/data/' . $letter->categoryLetters->slug
+        )->with('success', 'New Post Has Been Deleted.');
     }
 }
