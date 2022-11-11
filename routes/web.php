@@ -80,6 +80,14 @@ Route::middleware('auth')->group(function () {
             Route::get('/dashboard/unit/letter/data/{categoryletters}', 'data');
             Route::get('/dashboard/unit/letter/edittax/{letter}', 'edittax');
             Route::put('/dashboard/unit/letter/taxstore/{letter}', 'taxstore');
+            Route::get(
+                '/dashboard/unit/letter/editexpire/{letter}',
+                'editexpire'
+            );
+            Route::put(
+                '/dashboard/unit/letter/expirestore/{letter}',
+                'expirestore'
+            );
         });
 
         Route::resource(

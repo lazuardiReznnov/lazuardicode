@@ -177,4 +177,24 @@ class DashboardLetterController extends Controller
             '/dashboard/unit/letter/data/' . $letter->categoryLetters->slug
         )->with('success', 'letter Has Been Updated.!');
     }
+
+    public function editexpire(Letter $letter)
+    {
+        return view('dashboard.units.letter.editexpire', [
+            'title' => 'Expire Tax',
+            'data' => $letter,
+        ]);
+    }
+
+    public function expirestore(Request $request, Letter $letter)
+    {
+        $rules = ['expire_date' => 'required'];
+
+        $validatedData = $request->validate($rules);
+        Letter::where('id', $letter->id)->update($validatedData);
+
+        return redirect(
+            '/dashboard/unit/letter/data/' . $letter->categoryLetters->slug
+        )->with('success', 'letter Has Been Updated.!');
+    }
 }
