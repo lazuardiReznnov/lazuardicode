@@ -36,14 +36,14 @@ Route::middleware('auth')->group(function () {
             '/dashboard/user',
             DashboardUserController::class
         )->except('show');
-        Route::post('/dashboard/users/file-import', [
-            DashboardUserController::class,
-            'fileImport',
-        ]);
-        Route::get('/dashboard/users/file-import-create', [
-            DashboardUserController::class,
-            'fileImportCreate',
-        ]);
+        Route::controller(DashboardUserController::class)->group(function () {
+            Route::post('/dashboard/users/file-import', 'fileImport');
+            Route::get(
+                '/dashboard/users/file-import-create',
+                'fileImportCreate'
+            );
+        });
+
         // End Route User
         // route Profil
         route::resource(
@@ -54,24 +54,17 @@ Route::middleware('auth')->group(function () {
 
         // unit
         route::resource('/dashboard/units', DashboardUnitController::class);
-        Route::post('/dashboard/unit/file-import', [
-            DashboardUnitController::class,
-            'fileImport',
-        ]);
-        Route::get('/dashboard/unit/file-import-create', [
-            DashboardUnitController::class,
-            'fileImportCreate',
-        ]);
 
-        Route::get('/dashboard/unit/checkSlug', [
-            DashboardUnitController::class,
-            'checkSlug',
-        ]);
+        Route::controller(DashboardUnitController::class)->group(function () {
+            Route::get(
+                '/dashboard/unit/file-import-create',
+                'fileImportCreate'
+            );
+            Route::get('/dashboard/unit/checkSlug', 'checkSlug');
+            Route::get('/dashboard/unit/getType', 'gettype');
+            Route::post('/dashboard/unit/file-import', 'fileImport');
+        });
 
-        Route::get('/dashboard/unit/getType', [
-            DashboardUnitController::class,
-            'gettype',
-        ]);
         // endUnit
 
         // letter
