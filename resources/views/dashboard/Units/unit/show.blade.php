@@ -104,7 +104,7 @@
                         @php $date_now = date("Y/m/d"); @endphp
 
                         <b>Tax</b><br /><span
-                            class="text-{{ \Lazuardicode::expire($let->taxt,$date_now) }}"
+                            class="text-{{ \Lazuardicode::expire($let->tax,$date_now) }}"
                         >
                             {{ $let->tax }}</span
                         >
@@ -113,7 +113,7 @@
                     <li class="list-group-item">
                         <b>expire date</b><br />
                         <span
-                            class="text-{{ \Lazuardicode::expire($let->taxt,$date_now) }}"
+                            class="text-{{ \Lazuardicode::expire($let->expire_date,$date_now) }}"
                         >
                             {{ $let->expire_date }}</span
                         >

@@ -75,19 +75,35 @@
                     </td>
                     <td>
                         @if($data->tax)
-                        <span
-                            class="text-{{ \Lazuardicode::expire($data->tax,$date_now) }}"
+                        <a
+                            href="/dashboard/unit/letter/edittax/{{ $data->id }}"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="update Tax"
+                            class="badge bg-warning text-decoration-none fw-bold"
                         >
-                            {{ \Carbon\Carbon::parse($data->tax)->format('d/m/Y') }}
-                        </span>
+                            <span
+                                class="text-{{ \Lazuardicode::expire($data->tax,$date_now) }}"
+                            >
+                                {{ \Carbon\Carbon::parse($data->tax)->format('d/m/Y') }}
+                            </span>
+                        </a>
                         @else - @endif
                     </td>
                     <td>
-                        <span
-                            class="text-{{ \Lazuardicode::expire($data->expire_date,$date_now) }}"
+                        <a
+                            href="#"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="update Tax"
+                            class="badge bg-warning text-decoration-none btn-sm fw-bold"
                         >
-                            {{ \Carbon\Carbon::parse($data->expire_date)->format('d/m/Y') }}
-                        </span>
+                            <span
+                                class="text-{{ \Lazuardicode::expire($data->expire_date,$date_now) }}"
+                            >
+                                {{ \Carbon\Carbon::parse($data->expire_date)->format('d/m/Y') }}
+                            </span>
+                        </a>
                     </td>
 
                     <td>
@@ -96,7 +112,7 @@
                             class="badge bg-success"
                             data-bs-toggle="tooltip"
                             data-bs-placement="top"
-                            title="Detail User"
+                            title="Detail Letter"
                             ><i class="bi bi-eye"></i
                         ></a>
                         <a
@@ -104,7 +120,7 @@
                             class="badge bg-warning"
                             data-bs-toggle="tooltip"
                             data-bs-placement="top"
-                            title="Edit Unit"
+                            title="Edit letter"
                             ><i class="bi bi-pencil-square"></i
                         ></a>
 
@@ -118,7 +134,7 @@
                                 class="badge bg-danger"
                                 data-bs-toggle="tooltip"
                                 data-bs-placement="top"
-                                title="Delete Unit"
+                                title="Delete Letter"
                                 onclick="return confirm('are You sure ??')"
                             >
                                 <i class="bi bi-file-x-fill"></i>

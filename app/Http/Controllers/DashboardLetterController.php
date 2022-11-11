@@ -157,4 +157,24 @@ class DashboardLetterController extends Controller
             '/dashboard/unit/letter/data/' . $letter->categoryLetters->slug
         )->with('success', 'New Post Has Been Deleted.');
     }
+
+    public function edittax(Letter $letter)
+    {
+        return view('dashboard.units.letter.edittax', [
+            'title' => 'Edit Tax',
+            'data' => $letter,
+        ]);
+    }
+
+    public function taxstore(Request $request, Letter $letter)
+    {
+        $rules = ['tax' => 'required'];
+
+        $validatedData = $request->validate($rules);
+        Letter::where('id', $letter->id)->update($validatedData);
+
+        return redirect(
+            '/dashboard/unit/letter/data/' . $letter->categoryLetters->slug
+        )->with('success', 'letter Has Been Updated.!');
+    }
 }

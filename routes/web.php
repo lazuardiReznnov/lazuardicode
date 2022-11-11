@@ -75,10 +75,12 @@ Route::middleware('auth')->group(function () {
         // endUnit
 
         // letter
-        Route::get('/dashboard/unit/letter/data/{categoryletters}', [
-            DashboardLetterController::class,
-            'data',
-        ]);
+
+        Route::controller(DashboardLetterController::class)->group(function () {
+            Route::get('/dashboard/unit/letter/data/{categoryletters}', 'data');
+            Route::get('/dashboard/unit/letter/edittax/{letter}', 'edittax');
+            Route::put('/dashboard/unit/letter/taxstore/{letter}', 'taxstore');
+        });
 
         Route::resource(
             '/dashboard/unit/letter',
