@@ -109,11 +109,7 @@
                     <td>{{ $user->username }}</td>
                     <td>{{ $user->email }}</td>
                     <td>
-                        @if($user->isAdmin == 1)
-                        {{ $role = 'Administrator' }} @else
-                        {{$role =
-                        'user'}}
-                        @endif
+                        {{ $admin = $user->isAdmin = 1 ? 'Admin' : 'User' }}
                     </td>
                     <td>
                         <a

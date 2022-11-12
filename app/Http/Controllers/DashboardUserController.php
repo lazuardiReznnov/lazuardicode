@@ -75,7 +75,10 @@ class DashboardUserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('dashboard.user.show', [
+            'title' => 'Detail User',
+            'data' => $user,
+        ]);
     }
 
     /**
@@ -88,7 +91,7 @@ class DashboardUserController extends Controller
     {
         return view('dashboard.user.edit', [
             'title' => 'Edit User',
-            'data' => $user,
+            'data' => $user->load('profil_user')->first(),
         ]);
     }
 

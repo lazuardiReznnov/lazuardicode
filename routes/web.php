@@ -32,16 +32,14 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware('admin')->group(function () {
         // Route User
-        Route::resource(
-            '/dashboard/user',
-            DashboardUserController::class
-        )->except('show');
+
         Route::controller(DashboardUserController::class)->group(function () {
             Route::post('/dashboard/users/file-import', 'fileImport');
             Route::get(
                 '/dashboard/users/file-import-create',
                 'fileImportCreate'
             );
+            Route::resource('/dashboard/user', DashboardUserController::class);
         });
 
         // End Route User
@@ -93,9 +91,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('guest')->group(function () {
-    Route::controller(LoginController::class)->group(function(){
-        Route::get('/login',  'index')->name('login');
-        Route::post('/login',  'authenticate');
+    Route::controller(LoginController::class)->group(function () {
+        Route::get('/login', 'index')->name('login');
+        Route::post('/login', 'authenticate');
     });
-   
 });

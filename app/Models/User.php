@@ -41,8 +41,8 @@ class User extends Authenticatable
         return 'username';
     }
 
-    public function profilUser()
+    public function profil_user()
     {
-        $this->hasMany(profilUser::class);
+        return $this->hasOne(profilUser::class);
     }
 }
