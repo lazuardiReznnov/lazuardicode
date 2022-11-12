@@ -93,6 +93,9 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('guest')->group(function () {
-    Route::get('/login', [LoginController::class, 'index'])->name('login');
-    Route::post('/login', [LoginController::class, 'authenticate']);
+    Route::controller(LoginController::class)->group(function(){
+        Route::get('/login',  'index')->name('login');
+        Route::post('/login',  'authenticate');
+    });
+   
 });
