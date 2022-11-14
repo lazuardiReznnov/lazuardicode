@@ -116,17 +116,17 @@
                                         ><i class="fab fa-facebook"></i
                                     ></a>
                                     <a
-                                        href="{{ $data->linkedin }}"
+                                        href="{{ $data->profil_user->linkedin }}"
                                         class="badge text-primary fs-3 text-decoration-none"
                                         ><i class="bi bi-linkedin"></i
                                     ></a>
                                     <a
-                                        href="{{ $data->instagram }}"
+                                        href="{{ $data->profil_user->instagram }}"
                                         class="badge text-danger fs-3 text-decoration-none"
                                         ><i class="bi bi-instagram"></i
                                     ></a>
                                     <a
-                                        href="{{ $data->github }}"
+                                        href="{{ $data->profil_user->github }}"
                                         class="badge text-dark fs-3 text-decoration-none"
                                         ><i class="bi bi-github"></i
                                     ></a>

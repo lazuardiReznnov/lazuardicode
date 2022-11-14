@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,7 +9,7 @@
         />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>{{ $title }} | LAZUARDICODE</title>
+        <title>{{ $title ?? "" }} | {{ config("app.name") }}</title>
         <link
             href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
             rel="stylesheet"
