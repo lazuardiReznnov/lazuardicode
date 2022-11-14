@@ -88,6 +88,10 @@ Route::middleware('auth')->group(function () {
         );
 
         // endletter
+        Route::get('/dashboard/unit/files/cekSlug', [
+            DashboardFileUnitController::class,
+            'cekSlug',
+        ]);
 
         Route::resource(
             'dashboard/unit/files',

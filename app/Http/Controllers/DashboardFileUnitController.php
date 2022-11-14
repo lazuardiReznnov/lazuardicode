@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\FileUnit;
 use Illuminate\Http\Request;
+use App\Models\Unit;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class DashboardFileUnitController extends Controller
 {
@@ -16,7 +18,9 @@ class DashboardFileUnitController extends Controller
     {
         return view('dashboard.units.files.index', [
             'title' => 'Files Unit data',
-            'data' => FileUnit::all()->load('unit'),
+            'datas' => FileUnit::latest()
+                ->paginate(10)
+                ->withQueryString(),
         ]);
     }
 
@@ -27,7 +31,10 @@ class DashboardFileUnitController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.units.files.create', [
+            'title' => 'Add Files',
+            'data' => Unit::all(),
+        ]);
     }
 
     /**
@@ -84,5 +91,15 @@ class DashboardFileUnitController extends Controller
     public function destroy(FileUnit $fileUnit)
     {
         //
+    }
+
+    public function cekSlug(Request $request)
+    {
+        $slug = SlugService::createSlug(
+            FileUnit::class,
+            'slug',
+            $request->name
+        );
+        return response()->json(['slug' => $slug]);
     }
 }
