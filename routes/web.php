@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardFileUnitController;
 use App\Http\Controllers\DashboardLetterController;
 use App\Http\Controllers\DashboardProfilUserController;
 use App\Http\Controllers\DashboardUnitController;
@@ -22,6 +23,7 @@ use App\Http\Controllers\DashboardUserController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+// route Auth user
 Route::middleware('auth')->group(function () {
     Route::controller(DashboardController::class)->group(function () {
         Route::get('/dashboard', 'index');
@@ -42,13 +44,14 @@ Route::middleware('auth')->group(function () {
             Route::resource('/dashboard/user', DashboardUserController::class);
         });
 
-        // End Route User
         // route Profil
         route::resource(
             '/dashboard/users/profilUser',
             DashboardProfilUserController::class
         )->only('index', 'update');
         // end Route Profil
+
+        // End Route User
 
         // unit
         route::resource('/dashboard/units', DashboardUnitController::class);
@@ -66,7 +69,6 @@ Route::middleware('auth')->group(function () {
         // endUnit
 
         // letter
-
         Route::controller(DashboardLetterController::class)->group(function () {
             Route::get('/dashboard/unit/letter/data/{categoryletters}', 'data');
             Route::get('/dashboard/unit/letter/edittax/{letter}', 'edittax');
@@ -80,15 +82,20 @@ Route::middleware('auth')->group(function () {
                 'expirestore'
             );
         });
-
         Route::resource(
             '/dashboard/unit/letter',
             DashboardLetterController::class
         );
 
         // endletter
+
+        Route::resource(
+            'dashboard/unit/files',
+            DashboardFileUnitController::class
+        );
     });
 });
+// end Auth User
 
 Route::middleware('guest')->group(function () {
     Route::controller(LoginController::class)->group(function () {
