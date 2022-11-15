@@ -90,7 +90,7 @@
                     <th>#</th>
                     <th>Numb Plate</th>
                     <th>filename</th>
-
+                    <th>Update</th>
                     <th>pic</th>
                     <th>Action</th>
                 </tr>
@@ -107,22 +107,12 @@
                     <td>
                         {{ $data->name}}
                     </td>
+                    <td>{{ $data->updated_at->diffForHumans() }}</td>
                     <td>
                         @if($data->pic)
-                        <img
-                            width="50"
-                            src="{{ asset('storage/'. $data->pic) }}"
-                            class="rounded-circle mx-auto d-block shadow my-3"
-                            alt="Unit Image"
-                        />
-                        @else
-                        <img
-                            class="rounded-circle mx-auto d-block shadow my-3"
-                            src="http://source.unsplash.com/200x200?truck"
-                            alt=""
-                            width="50"
-                        />
-                        @endif
+                        <a href="{{ asset('storage/'. $data->pic) }}">view</a>
+
+                        @else - @endif
                     </td>
 
                     <td>

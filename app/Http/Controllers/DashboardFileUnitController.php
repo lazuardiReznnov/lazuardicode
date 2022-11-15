@@ -6,6 +6,7 @@ use App\Models\FileUnit;
 use Illuminate\Http\Request;
 use App\Models\Unit;
 use Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\support\Facades\Storage;
 
 class DashboardFileUnitController extends Controller
 {
@@ -45,7 +46,24 @@ class DashboardFileUnitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'unit_id' => 'required',
+            'name' => 'required',
+            'slug' => 'required|unique:file_units',
+            'description' => 'required',
+            'pic' => 'mimes:pdf|file|max:2048',
+        ]);
+
+        if ($request->file('pic')) {
+            $validatedData['pic'] = $request->file('pic')->store('unit-pic');
+        }
+
+        FileUnit::create($validatedData);
+
+        return redirect('/dashboard/unit/files')->with(
+            'success',
+            'New File Has Been aded.'
+        );
     }
 
     /**
