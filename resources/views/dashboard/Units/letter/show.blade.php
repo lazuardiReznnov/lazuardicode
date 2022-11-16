@@ -156,17 +156,40 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
+                            <th scope="col">view</th>
                             <th scope="col">desct</th>
-                            <th scope="col"></th>
+                            <th scope="col">Last Update</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
+                            @if($data->unit->fileUnit->count())
+                            @foreach($data->unit->fileUnit as $data)
+                            <th scope="row">
+                                {{ $loop->iteration }}
+                            </th>
+
+                            <td>
+                                {{ $data->name}}
+                            </td>
+                            <td>
+                                @if($data->pic)
+                                <a href="{{ asset('storage/'. $data->pic) }}"
+                                    >view</a
+                                >
+
+                                @else - @endif
+                            </td>
+                            <td>{{ $data->description }}</td>
+                            <td>{{ $data->updated_at->diffForHumans() }}</td>
                         </tr>
+                        @endforeach @else
+                        <tr>
+                            <td colspan="6" class="text-center">
+                                Data Not Found
+                            </td>
+                        </tr>
+                        @endif
                     </tbody>
                 </table>
             </div>

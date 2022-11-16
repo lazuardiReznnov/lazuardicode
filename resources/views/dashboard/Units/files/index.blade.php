@@ -46,22 +46,13 @@
         <div class="row mb-1">
             <div class="col-sm ms-2 mb-4">
                 <a
-                    href="/dashboard/unit/files/create"
+                    href="/dashboard/unit/fileUnit/create"
                     class="btn btn-primary"
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
                     title="Add New Unit"
                 >
                     <i class="fas fa-plus-circle"></i> Add
-                </a>
-                <a
-                    href="/dashboard/unit/files/file-import-create"
-                    class="btn btn-primary"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="top"
-                    title="Import Unit"
-                >
-                    <i class="fas fa-plus-circle"></i> Import
                 </a>
             </div>
             <div class="col-sm-4 ms-2">
@@ -90,8 +81,10 @@
                     <th>#</th>
                     <th>Numb Plate</th>
                     <th>filename</th>
-                    <th>Update</th>
-                    <th>pic</th>
+
+                    <th>File</th>
+                    <th>Description</th>
+                    <th>Last Update</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -107,25 +100,18 @@
                     <td>
                         {{ $data->name}}
                     </td>
-                    <td>{{ $data->updated_at->diffForHumans() }}</td>
+
                     <td>
                         @if($data->pic)
                         <a href="{{ asset('storage/'. $data->pic) }}">view</a>
 
                         @else - @endif
                     </td>
-
+                    <td>{{ $data->description }}</td>
+                    <td>{{ $data->updated_at->diffForHumans() }}</td>
                     <td>
                         <a
-                            href="/dashboard/unit/files/{{ $data->slug }}"
-                            class="badge bg-success"
-                            data-bs-toggle="tooltip"
-                            data-bs-placement="top"
-                            title="Detail User"
-                            ><i class="bi bi-eye"></i
-                        ></a>
-                        <a
-                            href="/dashboard/unit/files/{{ $data->slug }}/edit"
+                            href="/dashboard/unit/fileUnit/{{ $data->slug }}/edit"
                             class="badge bg-warning"
                             data-bs-toggle="tooltip"
                             data-bs-placement="top"
@@ -134,7 +120,7 @@
                         ></a>
 
                         <form
-                            action="/dashboard/unit/files/{{ $data->slug }}"
+                            action="/dashboard/unit/fileUnit/{{ $data->slug }}"
                             method="post"
                             class="d-inline"
                         >

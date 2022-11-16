@@ -54,6 +54,6 @@ class Unit extends Model
 
     public function fileUnit()
     {
-        return $this->hasMany(FileUnitL::class);
+        return $this->hasMany(FileUnit::class);
     }
 }

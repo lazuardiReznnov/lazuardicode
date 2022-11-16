@@ -94,7 +94,7 @@ Route::middleware('auth')->group(function () {
         ]);
 
         Route::resource(
-            'dashboard/unit/files',
+            'dashboard/unit/fileUnit',
             DashboardFileUnitController::class
         );
     });

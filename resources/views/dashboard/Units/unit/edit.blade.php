@@ -283,7 +283,7 @@
                         <label for="image" class="form-label"
                             >Upload Image</label
                         >
-                        @if($unit->img)
+                        @if($unit->pic)
                         <input
                             type="hidden"
                             name="old_pic"

@@ -177,9 +177,7 @@
                             >
                             <a class="nav-link" href="password.html">Types</a>
                             <a class="nav-link" href="/dashboard/units">Unit</a>
-                            <a
-                                class="nav-link"
-                                href="{{ route('files.index') }}"
+                            <a class="nav-link" href="/dashboard/unit/fileUnit"
                                 >files</a
                             >
                         </nav>

@@ -60,7 +60,7 @@ class DashboardFileUnitController extends Controller
 
         FileUnit::create($validatedData);
 
-        return redirect('/dashboard/unit/files')->with(
+        return redirect('/dashboard/unit/fileUnit')->with(
             'success',
             'New File Has Been aded.'
         );
@@ -85,7 +85,11 @@ class DashboardFileUnitController extends Controller
      */
     public function edit(FileUnit $fileUnit)
     {
-        //
+        return view('dashboard.units.files.edit', [
+            'title' => 'Edit Files',
+            'data' => $fileUnit,
+            'data_unit' => Unit::all(),
+        ]);
     }
 
     /**
@@ -97,7 +101,32 @@ class DashboardFileUnitController extends Controller
      */
     public function update(Request $request, FileUnit $fileUnit)
     {
-        //
+        $rules = [
+            'unit_id' => 'required',
+            'name' => 'required',
+
+            'description' => 'required',
+            'pic' => 'mimes:pdf|file|max:2048',
+        ];
+
+        if ($request->slug != $fileUnit->slug) {
+            $rules['slug'] = 'required|unique:file_units';
+        }
+        $validatedData = $request->validate($rules);
+
+        if ($request->file('pic')) {
+            if ($request->old_pic) {
+                storage::delete($request->old_pic);
+            }
+            $validatedData['pic'] = $request->file('pic')->store('unit-pic');
+        }
+
+        FileUnit::where('id', $fileUnit->id)->update($validatedData);
+
+        return redirect('/dashboard/unit/fileUnit')->with(
+            'success',
+            'New File Has Been aded.'
+        );
     }
 
     /**
@@ -108,7 +137,14 @@ class DashboardFileUnitController extends Controller
      */
     public function destroy(FileUnit $fileUnit)
     {
-        //
+        FileUnit::destroy($fileUnit->id);
+        if ($fileUnit->pic) {
+            storage::delete($fileUnit->pic);
+        }
+        return redirect('/dashboard/unit/fileUnit')->with(
+            'success',
+            'New File Has Been aded.'
+        );
     }
 
     public function cekSlug(Request $request)
