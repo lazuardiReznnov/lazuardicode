@@ -18,6 +18,17 @@
         aria-label="close"
     ></button>
 </div>
+@endif @if(session()->has('error'))
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{ session("error") }}
+
+    <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="close"
+    ></button>
+</div>
 @endif
 <!-- endpesan -->
 <div class="card mb-4">
@@ -299,7 +310,7 @@
     <div class="card-header">Change Password</div>
     <div class="card-body">
         <form
-            action="/dashboard/user/changepassword{{ $data->username }}"
+            action="/dashboard/user/changepassword/{{ $data->user->username }}"
             method="post"
             enctype="multipart/form-data"
         >

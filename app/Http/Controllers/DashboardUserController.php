@@ -177,5 +177,28 @@ class DashboardUserController extends Controller
 
     public function changepassword(Request $request, User $user)
     {
+        $old_pass = md5($request->old_password);
+        dd($old_pass);
+        $rules = [
+            'old_password' => 'required',
+            'password' => 'required',
+        ];
+        $validatedData = $request->validate($rules);
+        if ($user->password != $old_pass) {
+            return redirect('/dashboard/users/profilUser')->with(
+                'error',
+                'Your Old Password is Different'
+            );
+        } else {
+            user::where('id', $user->id)->update(
+                $validatedData['password'] = Hash::make(
+                    $validatedData['password']
+                )
+            );
+            return redirect('/dashboard/users/profilUser/index')->with(
+                'success',
+                'Your Password Has Been Updated'
+            );
+        }
     }
 }

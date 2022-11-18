@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
             Route::put(
                 '/dashboard/user/changepassword/{user} ',
                 'changepassword'
-            );
+            )->name('change-password');
             Route::resource('/dashboard/user', DashboardUserController::class);
         });
 
