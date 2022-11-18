@@ -41,6 +41,10 @@ Route::middleware('auth')->group(function () {
                 '/dashboard/users/file-import-create',
                 'fileImportCreate'
             );
+            Route::put(
+                '/dashboard/user/changepassword/{user} ',
+                'changepassword'
+            );
             Route::resource('/dashboard/user', DashboardUserController::class);
         });
 

@@ -294,4 +294,52 @@
         </form>
     </div>
 </div>
+
+<div class="card col-md-6">
+    <div class="card-header">Change Password</div>
+    <div class="card-body">
+        <form
+            action="/dashboard/user/changepassword{{ $data->username }}"
+            method="post"
+            enctype="multipart/form-data"
+        >
+            @method('put') @csrf
+            <div class="form-floating mb-3">
+                <input
+                    type="password"
+                    class="form-control @error('password') is-invalid @enderror"
+                    id="old_password"
+                    placeholder="Old Password"
+                    name="old_password"
+                />
+                <label for="password">Old Password</label>
+                @error('old_password')
+                <div id="password" class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+
+            <div class="form-floating mb-3">
+                <input
+                    type="password"
+                    class="form-control @error('password') is-invalid @enderror"
+                    id="password"
+                    placeholder="Password"
+                    name="password"
+                />
+                <label for="password">Password</label>
+                @error('password')
+                <div id="password" class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+
+            <div class="mb-3 ms-3 mt-5">
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
 @endsection

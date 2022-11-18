@@ -174,4 +174,8 @@ class DashboardUserController extends Controller
             );
         }
     }
+
+    public function changepassword(Request $request, User $user)
+    {
+    }
 }

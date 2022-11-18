@@ -35,9 +35,6 @@
                     <a class="nav-link" href="/dashboard/user"
                         >User Management</a
                     >
-                    <a class="nav-link" href="/dashboard/users/profilUser"
-                        >Profil Management</a
-                    >
                 </nav>
             </div>
             @endcan
