@@ -65,13 +65,15 @@
                         >
                             <option selected>Select Category</option>
                             @foreach($categories as $category)
-                            @if(old('category_id',
+                            <!-- @if(old('category_id',
                             $unit->type->category_id)==$category->id)
                             <option value="{{ $category->id }}" selected>
                                 {{ $category->name }}
                             </option>
-                            @endif
-                            <option value="{{ $category->id }}">
+                            @endif -->
+                            <option {{ $unit->
+                                type->category_id == $category->id ? 'selected'
+                                : '' }} value="{{ $category->id }}">
                                 {{ $category->name }}
                             </option>
                             @endforeach
@@ -93,13 +95,10 @@
                         >
                             <option selected>Select Brand</option>
                             @foreach($brands as $brand)
-                            @if(old('brand_id',$unit->type->brand_id
-                            )==$brand->id)
-                            <option value="{{ $brand->id }}" selected>
-                                {{ $brand->name }}
-                            </option>
-                            @endif
-                            <option value="{{ $brand->id }}">
+
+                            <option {{ $unit->
+                                type->brand_id ==$brand->id ? 'selected' : '' }}
+                                value="{{ $brand->id }}">
                                 {{ $brand->name }}
                             </option>
                             @endforeach
