@@ -27,7 +27,7 @@
         <!-- endHeader -->
         <!-- Main -->
         <main class="mb-5 min-vh-100">
-            <div class="container">@yield('content')</div>
+            <div class="container">{{ $slot }}</div>
         </main>
         <!-- End Main -->
 
