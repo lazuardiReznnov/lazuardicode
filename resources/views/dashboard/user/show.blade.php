@@ -45,7 +45,7 @@
                             <li class="list-group-item">
                                 <b>Roles</b><br />
 
-                                {{ $admin = $data->isAdmin = 1 ? 'Admin' : 'user' }}
+                                {{ $data->isAdmin = 1 ? 'Admin' : 'user' }}
                             </li>
                         </ul>
                     </div>

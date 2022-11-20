@@ -140,11 +140,12 @@
                             <option value="{{ $bak->id }}" selected>
                                 {{ $bak->name }}
                             </option>
-                            @endif
+
+                            @else
                             <option value="{{ $bak->id }}">
                                 {{ $bak->name }}
                             </option>
-                            @endforeach
+                            @endif @endforeach
                         </select>
                         <label for="floatingSelect">baks</label>
                         @error('bak')
@@ -167,11 +168,11 @@
                             <option value="{{ $flag->id }}" selected>
                                 {{ $flag->name }}
                             </option>
-                            @endif
+                            @else
                             <option value="{{ $flag->id }}">
                                 {{ $flag->name }}
                             </option>
-                            @endforeach
+                            @endif @endforeach
                         </select>
                         <label for="floatingSelect">Flags</label>
                         @error('flag')

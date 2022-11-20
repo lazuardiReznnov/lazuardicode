@@ -26,11 +26,11 @@
                     <option value="{{ $unit->id }}" selected>
                         {{ $unit->name }}
                     </option>
-                    @endif
+                    @else
                     <option value="{{ $unit->id }}">
                         {{ $unit->name }}
                     </option>
-                    @endforeach
+                    @endif @endforeach
                 </select>
                 <label for="floatingSelect">Unit</label>
                 @error('unit_id')
@@ -53,11 +53,12 @@
                     <option value="{{ $category_letters->id }}" selected>
                         {{ $category_letters->name }}
                     </option>
-                    @endif
+                    @else
                     <option value="{{ $category_letters->id }}">
                         {{ $category_letters->name }}
                     </option>
-                    @endforeach
+
+                    @endif @endforeach
                 </select>
                 <label for="floatingSelect">category_letters</label>
                 @error('category_letters')

@@ -109,7 +109,7 @@
                     <td>{{ $user->username }}</td>
                     <td>{{ $user->email }}</td>
                     <td>
-                        {{ $admin = $user->isAdmin = 1 ? 'Admin' : 'User' }}
+                        {{  $user->isAdmin = 1 ? 'Admin' : 'User' }}
                     </td>
                     <td>
                         <a

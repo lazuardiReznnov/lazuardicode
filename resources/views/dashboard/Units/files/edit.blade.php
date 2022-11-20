@@ -69,11 +69,11 @@
                             <option value="{{ $unit->id }}" selected>
                                 {{ $unit->name }}
                             </option>
-                            @endif
+                            @lelse
                             <option value="{{ $unit->id }}">
                                 {{ $unit->name }}
                             </option>
-                            @endforeach
+                            @endif @endforeach
                         </select>
                         <label for="floatingSelect">unit</label>
                         @error('unit')
