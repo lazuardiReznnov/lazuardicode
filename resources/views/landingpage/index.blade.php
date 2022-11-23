@@ -24,75 +24,24 @@
     </div>
     <!-- Endsearchbar -->
     <div class="row justify-content-between g-2">
-        <div class="col-lg-2 p-2 card-hover border border-1 me-2 shadow-sm">
-            <a
-                href="#"
-                class="d-flex flex-row text-decoration-none text-slate-500"
-            >
-                <div class="fs-3 me-4">
-                    <i class="bi bi-map"></i>
-                </div>
-                <div>
-                    <h4 class="text-16 fw-bold text-uppercase">Rute</h4>
-                    <p class="text-12">Description</p>
-                </div>
-            </a>
-        </div>
-        <div class="col-lg-2 p-2 card-hover border border-1 me-2 shadow-sm">
-            <a
-                href="#"
-                class="d-flex flex-row text-decoration-none text-slate-500"
-            >
-                <div class="fs-2 me-4">
-                    <i class="bi bi-truck"></i>
-                </div>
-                <div>
-                    <h4 class="text-16 fw-bold text-uppercase">Unit</h4>
-                    <p class="text-12">Description</p>
-                </div>
-            </a>
-        </div>
-        <div class="col-lg-2 p-2 card-hover border border-1 me-2 shadow-sm">
-            <a
-                href="#"
-                class="d-flex flex-row text-decoration-none text-slate-500"
-            >
-                <div class="fs-2 me-4">
-                    <i class="bi bi-file-earmark-excel"></i>
-                </div>
-                <div>
-                    <h4 class="text-16 fw-bold text-uppercase">Report</h4>
-                    <p class="text-12">Description</p>
-                </div>
-            </a>
-        </div>
-        <div class="col-lg-2 p-2 card-hover border border-1 me-2 shadow-sm">
-            <a
-                href="#"
-                class="d-flex flex-row text-decoration-none text-slate-500"
-            >
-                <div class="fs-3 me-4">
-                    <i class="bi bi-gear"></i>
-                </div>
-                <div>
-                    <h4 class="text-16 fw-bold text-uppercase">Sparepart</h4>
-                    <p class="text-12">Description</p>
-                </div>
-            </a>
-        </div>
-        <div class="col-lg-2 p-2 card-hover border border-1 me-2 shadow-sm">
-            <a
-                href="#"
-                class="d-flex flex-row text-decoration-none text-slate-500"
-            >
-                <div class="fs-3 me-4">
-                    <i class="bi bi-person-rolodex"></i>
-                </div>
-                <div>
-                    <h4 class="text-16 fw-bold text-uppercase">Employee</h4>
-                    <p class="text-12">Description</p>
-                </div>
-            </a>
-        </div>
+        <x-dashboardcard link="#" title="Rute" description="Description">
+            <i class="bi bi-map"></i>
+        </x-dashboardcard>
+
+        <x-dashboardcard link="#" title="Unit" description="Description">
+            <i class="bi bi-truck"></i>
+        </x-dashboardcard>
+
+        <x-dashboardcard link="#" title="Report" description="Description">
+            <i class="bi bi-file-earmark-excel"></i>
+        </x-dashboardcard>
+
+        <x-dashboardcard link="#" title="Sparepart" description="Description">
+            <i class="bi bi-gear"></i>
+        </x-dashboardcard>
+
+        <x-dashboardcard link="#" title="Employee" description="Description">
+            <i class="bi bi-person-rolodex"></i>
+        </x-dashboardcard>
     </div>
 </x-app>
