@@ -24,8 +24,10 @@
     </div>
     <!-- Endsearchbar -->
     <div class="row justify-content-between g-2">
-        <x-dashboardcard link="#" title="Rute" description="Description">
+        <x-dashboardcard link="#">
             <i class="bi bi-map"></i>
+            <x-slot name="title">Rute</x-slot>
+            <x-slot name="description"> Description</x-slot>
         </x-dashboardcard>
 
         <x-dashboardcard link="#" title="Unit" description="Description">
